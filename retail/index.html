@@ -96,7 +96,16 @@
           <a-gltf-model id="cajera-glft" shadow="receive:true;cast:true;" src="assets/objects/cajera.glb"  crossorigin="anonymous"></a-gltf-model>
           <a-gltf-model id="cashier-glft" shadow="receive:true;cast:true;" src="assets/objects/cashier.glb"  crossorigin="anonymous"></a-gltf-model>
           <a-gltf-model id="dressing-room-glft" shadow="receive:true;cast:true;" src="assets/objects/dressing-room.glb"  crossorigin="anonymous"></a-gltf-model>
-          <a-gltf-model id="arched-door-room-glft" shadow="receive:true;cast:true;" src="assets/objects/arched-door.glb"  crossorigin="anonymous"></a-gltf-model>
+          <a-gltf-model id="dress-door-glft" shadow="receive:true;cast:true;" src="assets/objects/dress-door.glb"  crossorigin="anonymous"></a-gltf-model>
+          <a-gltf-model id="curtain-glft" shadow="receive:true;cast:true;" src="assets/objects/curtain.glb"  crossorigin="anonymous"></a-gltf-model>
+          <a-gltf-model id="clienta1-glft" shadow="receive:true;cast:true;" src="assets/objects/clienta1.glb"  crossorigin="anonymous"></a-gltf-model>
+          <a-gltf-model id="clienta2-glft" shadow="receive:true;cast:true;" src="assets/objects/clienta2.glb"  crossorigin="anonymous"></a-gltf-model>
+          <a-gltf-model id="cliente-glft" shadow="receive:true;cast:true;" src="assets/objects/cliente.glb"  crossorigin="anonymous"></a-gltf-model>
+          <a-gltf-model id="empleado-glft" shadow="receive:true;cast:true;" src="assets/objects/empleado.glb"  crossorigin="anonymous"></a-gltf-model>
+          <a-gltf-model id="dependiente-glft" shadow="receive:true;cast:true;" src="assets/objects/dependiente.glb"  crossorigin="anonymous"></a-gltf-model>
+          <a-gltf-model id="cliente2-glft" shadow="receive:true;cast:true;" src="assets/objects/cliente2.glb"  crossorigin="anonymous"></a-gltf-model>
+          <a-gltf-model id="women-glft" shadow="receive:true;cast:true;" src="assets/objects/women.glb"  crossorigin="anonymous"></a-gltf-model>
+          <a-gltf-model id="man-glft" shadow="receive:true;cast:true;" src="assets/objects/man.glb"  crossorigin="anonymous"></a-gltf-model>
         </a-asset>    
 
         <!-- Decoration -->
@@ -110,12 +119,38 @@
             <a-entity gltf-model="#sofa2-glft"  position="-0.5 0 17.5" rotation="0 120 0" scale="0.9 0.9 0.9"></a-entity>
             <a-entity gltf-model="#cajera-glft"  position="19 0 23" rotation="0 -90 0" scale="2.8 2.8 2.8"></a-entity>
             <a-entity gltf-model="#cashier-glft"  position="17 2 23" rotation="0 90 0" scale="30 30 30"></a-entity>
-            <a-entity gltf-model="#dressing-room-glft"  position="30 5 16.7" rotation="0 -90 0" scale="5 5 5"></a-entity>
-            <a-entity gltf-model="#arched-door-glft"  position="5 5 5" rotation="0 -90 0" scale="1000 1000 1000"></a-entity>
+            <a-entity gltf-model="#dressing-room-glft"  position="30 5.5 16.7" rotation="0 -90 0" scale="5 5 5"></a-entity>
+            <a-entity gltf-model="#curtain-glft"  position="31 0 15.5" rotation="0 -90 0" scale="3 3 3"></a-entity>
+            <a-entity gltf-model="#clienta1-glft"  position="27 0 16" rotation="0 70 0" scale="2.8 2.8 2.8"></a-entity>
+            <a-entity gltf-model="#clienta2-glft"  position="15 0 23" rotation="0 90 0" scale="2.8 2.8 2.8"></a-entity>
+            <a-entity gltf-model="#cliente-glft"  position="15 0 6" rotation="0 -140 0" scale="2.8 2.8 2.8"></a-entity>
+            <a-entity gltf-model="#empleado-glft"  position="10 0 4" rotation="0 -250 0" scale="2.8 2.8 2.8"></a-entity>
+            <a-entity gltf-model="#dependiente-glft"  position="14 0 29" rotation="0 180 0" scale="2.8 2.8 2.8"></a-entity>
+            <a-entity gltf-model="#cashier-glft"  position="14 2 26.5" rotation="0 360 0" scale="30 30 30"></a-entity>
+            <a-entity gltf-model="#cliente2-glft"  position="2 0 30" rotation="0 -45 0" scale="2.8 2.8 2.8"></a-entity>
+            <a-entity gltf-model="#women-glft"  position="-3 0 22" rotation="0 75 0" scale="2.8 2.8 2.8"></a-entity>
+            <a-entity gltf-model="#man-glft"  position="-3.5 0 23.4" rotation="0 120 0" scale="2.8 2.8 2.8"></a-entity>
           </a-entity>
         </a-entity>
+
+        <!-- Decoration A-FRAME -->
+        <a-entity id="entorno">
+          <a-box id="letero-dressing-room"
+          rotation="0 90 0"
+          position="29 6 16.7"
+          width="5"
+          height="1"
+          depth="0.2"
+          repeat="5 5"
+          color="yellow"
+          ></a-box>
+         </a-entity>
       
       </a-scene>
+
+
+
+
     </div>
     <script defer type="module">
       
