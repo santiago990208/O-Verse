@@ -88,6 +88,29 @@
                 </a-cursor>
               </a-entity>
             </a-entity>
+
+        <!-- Obejtos --> 
+        <a-asset>
+          <a-gltf-model id="sofa-glft" shadow="receive:true;cast:true;" src="assets/objects/sofa.glb"  crossorigin="anonymous"></a-gltf-model>
+          <a-gltf-model id="sofa2-glft" shadow="receive:true;cast:true;" src="assets/objects/sofa2.glb"  crossorigin="anonymous"></a-gltf-model>
+          <a-gltf-model id="cajera-glft" shadow="receive:true;cast:true;" src="assets/objects/cajera.glb"  crossorigin="anonymous"></a-gltf-model>
+          <a-gltf-model id="cashier-glft" shadow="receive:true;cast:true;" src="assets/objects/cashier.glb"  crossorigin="anonymous"></a-gltf-model>
+        </a-asset>    
+
+        <!-- Decoration -->
+        <a-entity id="decoration-world">
+          <a-entity id="living-room">
+            <a-entity gltf-model="#sofa-glft"  position="5 1 10" rotation="0 -50 0" scale="1 1 1"></a-entity>
+            <a-entity gltf-model="#sofa-glft"  position="5 1 20" rotation="0 110 0" scale="1 1 1"></a-entity>
+            <a-entity gltf-model="#sofa2-glft"  position="9.5 0 11.5" rotation="0 -60 0" scale="0.9 0.9 0.9"></a-entity>
+            <a-entity gltf-model="#sofa2-glft"  position="10.5 0 15.5" rotation="0 -120 0" scale="0.9 0.9 0.9"></a-entity>
+            <a-entity gltf-model="#sofa2-glft"  position="-1.5 0 13.5" rotation="0 60 0" scale="0.9 0.9 0.9"></a-entity>
+            <a-entity gltf-model="#sofa2-glft"  position="-0.5 0 17.5" rotation="0 120 0" scale="0.9 0.9 0.9"></a-entity>
+            <a-entity gltf-model="#cajera-glft"  position="19 0 23" rotation="0 -90 0" scale="2.8 2.8 2.8"></a-entity>
+            <a-entity gltf-model="#cashier-glft"  position="17 2 23" rotation="0 90 0" scale="30 30 30"></a-entity>
+          </a-entity>
+        </a-entity>
+      
       </a-scene>
     </div>
     <script defer type="module">
