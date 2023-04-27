@@ -7,6 +7,7 @@
     <meta name="description" content="Workshop Retail Metaverse en OCI">
     <meta name="author" content="Santiago Botero">
     <script src="https://aframe.io/releases/1.3.0/aframe.min.js"></script>
+    <script src="assets/js/main.js"></script> <!--link del archivo en object storage-->
     <style>
       #aframe-scene {
         display: none;
@@ -17,7 +18,7 @@
         left: 0;
         width: 100%;
         height: 100%;
-        background-image: url('assets/images/ui/loading.png');
+        background-image: url('https://www.google.com/url?sa=i&url=https%3A%2F%2Fgratisography.com%2Ftag%2Fcool%2F&psig=AOvVaw13Ee29rPvuGkxZT_GXiJX9&ust=1682696004776000&source=images&cd=vfe&ved=0CA4QjRxqFwoTCPi_y5-xyv4CFQAAAAAdAAAAABAD');
         background-size: cover;
         background-position: center center;
         display: flex;
@@ -55,39 +56,43 @@
       <div class="loading-spinner"></div>
     </div>
     <div id="aframe-scene">
-      <a-scene>
-
+      <a-scene loading-screen="enabled:false;"  reflection="directionalLight:#dirlight;" renderer="alpha:true;physicallyCorrectLights:true;colorManagement:true;">
+        <a-light id="dirlight" intensity="2" light="castShadow:false;type:hemisphere" position="0 -6 0"></a-light>
         <!-- Store scene -->
-        <a-entity
-          gltf-model="store_in_the_mall.glb"
-          position="0 0 0"
-          scale="0.08 0.08 0.08"
-          rotation="0 0 0"
-        ></a-entity>
+        <a-entity id="modelo-3d-tienda" gltf-model="store_in_the_mall.glb" position="0 0 0" scale="0.08 0.08 0.08" rotation="0 0 0">
+          <a-plane id="plano-general"
+            class="navmesh"
+            rotation="-90 0 0"
+            position="0 0 0"
+            width="1000"
+            height="1000"
+            color="blue"
+            visible="true"
+          ></a-plane>
+          <a-plane id="limitante-izquierda-pared"
+            class="navmesh-hole"
+            rotation="-90 0 0"
+            position="100 0 0"
+            width="300"
+            height="90"
+            color="#FFF"
+            visible="true"
+          ></a-plane>
+          <a-plane id="limitante-izquierda-hueco"
+            class="navmesh-hole"
+            rotation="-90 0 0"
+            position="-150 0 -40"
+            width="200"
+            height="20"
+            color="#FFF"
+            visible="true"
+          ></a-plane>
+        </a-entity>
         <!-- Ambient light -->
         <!-- <a-entity light="type: ambient; intensity: 1"></a-entity> -->
 
         <!-- Directional light -->
         <!-- <a-entity light="type: directional; intensity: 1" position="-1 1 1"></a-entity> -->
-
-        <!-- Camera with navigation controls -->
-        <a-entity id="cameraRig"
-              wasd-controls
-              look-controls="pointerLockEnabled: false"
-              simple-navmesh-constraint="navmesh:.navmesh;fall:0.5;height:0.8;exclude:.navmesh-hole;"
-              movement-controls="speed:0.5;camera:#head;"
-              position="0 0.8 19" rotation="0 0 0" >
-              <a-entity id="head"
-                camera="near:0.01;"
-                position="0 2.65 0">
-                <a-cursor id="mainCursor" 
-                  position="0 0 -0.5"
-                  geometry="primitive: ring; radiusInner: 0.0045; radiusOuter: 0.008"
-                  material="opacity: 0.6; shader: flat" 
-                  cursor="rayOrigin: fuse">
-                </a-cursor>
-              </a-entity>
-            </a-entity>
 
         <!-- Obejtos --> 
         <a-asset>
@@ -96,7 +101,7 @@
           <a-gltf-model id="cajera-glft" shadow="receive:true;cast:true;" src="assets/objects/cajera.glb"  crossorigin="anonymous"></a-gltf-model>
           <a-gltf-model id="cashier-glft" shadow="receive:true;cast:true;" src="assets/objects/cashier.glb"  crossorigin="anonymous"></a-gltf-model>
           <a-gltf-model id="dressing-room-glft" shadow="receive:true;cast:true;" src="assets/objects/dressing-room.glb"  crossorigin="anonymous"></a-gltf-model>
-          <a-gltf-model id="dress-door-glft" shadow="receive:true;cast:true;" src="assets/objects/dress-door.glb"  crossorigin="anonymous"></a-gltf-model>
+          <!-- <a-gltf-model id="dress-door-glft" shadow="receive:true;cast:true;" src="assets/objects/dress-door.glb"  crossorigin="anonymous"></a-gltf-model> -->
           <a-gltf-model id="curtain-glft" shadow="receive:true;cast:true;" src="assets/objects/curtain.glb"  crossorigin="anonymous"></a-gltf-model>
           <a-gltf-model id="clienta1-glft" shadow="receive:true;cast:true;" src="assets/objects/clienta1.glb"  crossorigin="anonymous"></a-gltf-model>
           <a-gltf-model id="clienta2-glft" shadow="receive:true;cast:true;" src="assets/objects/clienta2.glb"  crossorigin="anonymous"></a-gltf-model>
@@ -114,14 +119,15 @@
           <a-entity id="living-room">
             <a-entity gltf-model="#sofa-glft"  position="5 1 10" rotation="0 -50 0" scale="1 1 1"></a-entity>
             <a-entity gltf-model="#sofa-glft"  position="5 1 20" rotation="0 110 0" scale="1 1 1"></a-entity>
-            <a-entity gltf-model="#sofa2-glft"  position="9.5 0 11.5" rotation="0 -60 0" scale="0.9 0.9 0.9"></a-entity>
+            <a-entity gltf-model="#sofa2-glft"  position="9.5 0 11.5" rotation="0 -60 0" scale="0.9 0.9 0.9">
+              <a-plane rotation="-90 0 0" width="5" height="5" position="0 0 0" class="navmesh-hole" color="#FFF" visible="true"></a-plane>
+            </a-entity>
             <a-entity gltf-model="#sofa2-glft"  position="10.5 0 15.5" rotation="0 -120 0" scale="0.9 0.9 0.9"></a-entity>
             <a-entity gltf-model="#sofa2-glft"  position="-1.5 0 13.5" rotation="0 60 0" scale="0.9 0.9 0.9"></a-entity>
             <a-entity gltf-model="#sofa2-glft"  position="-0.5 0 17.5" rotation="0 120 0" scale="0.9 0.9 0.9"></a-entity>
             <a-entity gltf-model="#table-glft"  position="4.5 0 15.5" rotation="0 120 0" scale="2 2 2"></a-entity>
             <a-entity gltf-model="#cajera-glft"  position="19 0 23" rotation="0 -90 0" scale="2.8 2.8 2.8"></a-entity>
             <a-entity gltf-model="#cashier-glft"  position="17 2 23" rotation="0 90 0" scale="30 30 30"></a-entity>
-            <a-entity gltf-model="#dressing-room-glft"  position="30 5.5 16.7" rotation="0 -90 0" scale="5 5 5"></a-entity>
             <a-entity gltf-model="#curtain-glft"  position="31 0 15.5" rotation="0 -90 0" scale="3 3 3"></a-entity>
             <a-entity gltf-model="#clienta1-glft"  position="27 0 16" rotation="0 70 0" scale="2.8 2.8 2.8"></a-entity>
             <a-entity gltf-model="#clienta2-glft"  position="15 0 23" rotation="0 90 0" scale="2.8 2.8 2.8"></a-entity>
@@ -135,8 +141,8 @@
           </a-entity>
         </a-entity>
 
-        <!-- Decoration A-FRAME -->
-        <a-entity id="entorno">
+        <!-- Dressing room -->
+        <a-entity id="entorno" class="objectclick">
           <a-box id="letero-dressing-room"
           rotation="0 90 0"
           position="29 6 16.7"
@@ -145,8 +151,30 @@
           depth="0.2"
           repeat="5 5"
           color="yellow"
+          
           ></a-box>
+          <a-entity gltf-model="#dressing-room-glft"  position="30 5.5 16.7" rotation="0 -90 0" scale="5 5 5" ></a-entity>
          </a-entity>
+         
+
+         <!-- Camera with navigation controls -->
+        <a-entity id="cameraRig"
+          wasd-controls
+          look-controls="pointerLockEnabled: false"
+          simple-navmesh-constraint="navmesh:.navmesh;fall:0.5;height:0.8;exclude:.navmesh-hole;"
+          movement-controls="speed:0.5;camera:#head;"
+          position="0 0.8 19" rotation="0 0 0" >
+          <a-entity id="head"
+            camera="near:0.01;"
+            position="0 2.65 0">
+            <a-cursor id="mainCursor" 
+              position="0 0 -0.5"
+              geometry="primitive: ring; radiusInner: 0.0045; radiusOuter: 0.008"
+              material="opacity: 0.6; shader: flat" 
+              cursor="rayOrigin: fuse">
+            </a-cursor>
+          </a-entity>
+        </a-entity>
       
       </a-scene>
 
