@@ -72,9 +72,11 @@
               <!-- Videos -->
               <a-video id="video-pantalla" src="assets/videos/TransformingthePublicSector.mp4" width="16" height="9" crossorigin="anonymous"></a-video>
 
-              <!-- Sillas de espera -->
+              <!-- Obejtos -->
               <a-gltf-model id="sillas-espera-glft" shadow="receive:true;cast:true;" src="assets/objects/sillas-espera.glb"  crossorigin="anonymous"></a-gltf-model>
               <a-mixin id="sillas-espera" gltf-model="#sillas-espera-glft"></a-mixin>
+
+              <a-gltf-model id="reception-women-glft" shadow="receive:true;cast:true;" src="assets/objects/reception-women.glb"  crossorigin="anonymous"></a-gltf-model>
 
               <a-gltf-model id="maquinas-expendedoras-glft" shadow="receive:true;cast:true;" src="assets/objects/maquinas-expendedoras.glb"  crossorigin="anonymous"></a-gltf-model>
               <a-mixin id="maquinas-expendedoras" gltf-model="#maquinas-expendedoras-glft"></a-mixin>
@@ -522,10 +524,14 @@
                   </a-entity>
             </a-entity>
             
+            <!-- Reception Info -->
             <a-entity id="recepcion_informacion" position="0 0 -15">
               <a-entity mixin="escritorio-recepcion" position="0 1.6 0" scale="0.06 0.06 0.06" rotation="0 0 0">
                   <a-plane rotation="-90 0 0" width="5" height="5" position="0 -1 0" class="navmesh-hole" visible="false"></a-plane>
               </a-entity>
+
+              <a-entity gltf-model="#reception-women-glft"  position="3 0 -0.5" rotation="0 -30 0" scale="2.5 2.5 2.5"></a-entity>
+
               <a-entity id="icono_centro_informacio" mixin="acceso" position="-0.5 3.8 0" scale="1 1 1" rotation="0 90 0">
 
                 <a-entity id="title_login" geometry="primitive:plane; height:0.450; width:1.5" rotation="0 -90 0"
