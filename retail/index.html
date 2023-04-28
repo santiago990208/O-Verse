@@ -107,11 +107,12 @@
           <a-gltf-model id="women-glft" shadow="receive:true;cast:true;" src="assets/objects/women.glb"  crossorigin="anonymous"></a-gltf-model>
           <a-gltf-model id="man-glft" shadow="receive:true;cast:true;" src="assets/objects/man.glb"  crossorigin="anonymous"></a-gltf-model>
           <a-gltf-model id="table-glft" shadow="receive:true;cast:true;" src="assets/objects/table.glb"  crossorigin="anonymous"></a-gltf-model>
-          <a-entity id="video retail">
-            <a-mixin id="pantalla"   geometry="primitive: box; width: 4.5; height: 3.5; depth: 0.01;" material="src: #video-pantalla"></a-mixin>
-            <a-mixin id="border-pantalla"  geometry="primitive: box; width: 4.6; height: 3.6; depth: 0.01;" material="color: black"></a-mixin>
-          </a-entity> 
-        </a-asset>    
+        </a-asset> 
+
+        <!-- Textures -->
+        <a-asset>
+        <img id="texturamadera" src="assets/images/textures/madera.png"  crossorigin="anonymous"/>
+        </a-asset>
 
         <!-- Information --> 
         <a-asset>
@@ -123,7 +124,8 @@
         </a-asset>
 
         <!-- Videos -->
-        <a-video id="video-pantalla" src="assets/video/Client-Paqueta-Retail.mp4" width="16" height="9" crossorigin="anonymous"></a-video>
+        <a-video id="video-pantalla" src="assets/video/Client-Paqueta-Retail.mp4" width="16" height="9" position="22.4 4.3 7" rotation="0 90 0" scale="0.7 0.7 0.7" crossorigin="anonymous"></a-video>
+        <a-video id="video-pantalla" src="assets/video/Client-Paqueta-Retail.mp4" width="16" height="9" position="22.4 4.3 26.3" rotation="0 90 0" scale="0.7 0.7 0.7" crossorigin="anonymous"></a-video>
 
 
         <!-- Decoration -->
@@ -218,13 +220,29 @@
           repeat="5 5"
           color="yellow"
           ></a-box>
+
+          <a-box id="pared-izquierda"
+          rotation="0 90 0"
+          position="22.6 4.2 7"
+          width="13"
+          height="9"
+          depth="0.2"
+          repeat="5 5"
+          src="#texturamadera"
+          ></a-box>        
+
+          <a-box id="pared-derecha"
+          rotation="0 90 0"
+          position="22.6 4.2 26.3"
+          width="13"
+          height="9"
+          depth="0.2"
+          repeat="5 5"
+          src="#texturamadera"
+          ></a-box>          
+
+        
         </a-entity>
-        </a-entity>
-  
-        <!-- Video Pantalla -->
-        <a-entity id="pantalla-frontal">
-          <a-entity mixin="pantalla" scale="3 2 0" position="12 0 29" ></a-entity>
-          <a-entity mixin="border-pantalla" scale="3 2 0" position="12 0 29"></a-entity>
         </a-entity>
 
       </a-scene>
