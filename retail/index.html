@@ -107,7 +107,20 @@
           <a-gltf-model id="women-glft" shadow="receive:true;cast:true;" src="assets/objects/women.glb"  crossorigin="anonymous"></a-gltf-model>
           <a-gltf-model id="man-glft" shadow="receive:true;cast:true;" src="assets/objects/man.glb"  crossorigin="anonymous"></a-gltf-model>
           <a-gltf-model id="table-glft" shadow="receive:true;cast:true;" src="assets/objects/table.glb"  crossorigin="anonymous"></a-gltf-model>
+          <a-entity id="video retail">
+            <a-mixin id="pantalla"   geometry="primitive: box; width: 4.5; height: 3.5; depth: 0.01;" material="src: #video-pantalla"></a-mixin>
+            <a-mixin id="border-pantalla"  geometry="primitive: box; width: 4.6; height: 3.6; depth: 0.01;" material="color: black"></a-mixin>
+          </a-entity> 
         </a-asset>    
+
+        <!-- Information --> 
+        <a-asset>
+          <img id="QR" src="assets/images/information/QR.jpg"  crossorigin="anonymous"/>
+        </a-asset>
+
+        <!-- Videos -->
+        <a-video id="video-pantalla" src="assets/video/Client-Paqueta-Retail.mp4" width="16" height="9" crossorigin="anonymous"></a-video>
+
 
         <!-- Decoration -->
         <a-entity id="decoration-world">
@@ -133,7 +146,18 @@
             <a-entity gltf-model="#women-glft"  position="-3 0 22" rotation="0 75 0" scale="2.8 2.8 2.8"></a-entity>
             <a-entity gltf-model="#man-glft"  position="-3.5 0 23.4" rotation="0 120 0" scale="2.8 2.8 2.8"></a-entity>
           </a-entity>
-        </a-entity>
+
+          <a-image id="QR"
+          rotation="0 -90 0"
+          position="-3.8 3.8 29.5"
+          width="4.5"
+          height="7.5"
+          src="#QR"
+          ></a-image>
+
+        <!-- Video Pantalla -->
+          <a-entity mixin="pantalla" scale="3 2 0" position="12 0 29.1" ></a-entity>
+          <a-entity mixin="border-pantalla" scale="3 2 0" position="12 0 29.1"></a-entity>
 
         <!-- Decoration A-FRAME -->
         <a-entity id="entorno">
@@ -146,8 +170,8 @@
           repeat="5 5"
           color="yellow"
           ></a-box>
-         </a-entity>
-      
+        </a-entity>
+        </a-entity>
       </a-scene>
 
 
