@@ -155,10 +155,6 @@
           src="#QR"
           ></a-image>
 
-        <!-- Video Pantalla -->
-          <a-entity mixin="pantalla" scale="3 2 0" position="12 0 29.1" ></a-entity>
-          <a-entity mixin="border-pantalla" scale="3 2 0" position="12 0 29.1"></a-entity>
-
         <!-- Decoration A-FRAME -->
         <a-entity id="entorno">
           <a-box id="letero-dressing-room"
@@ -172,6 +168,13 @@
           ></a-box>
         </a-entity>
         </a-entity>
+  
+        <!-- Video Pantalla -->
+        <a-entity id="pantalla-frontal">
+          <a-entity mixin="pantalla" scale="3 2 0" position="12 0 29" ></a-entity>
+          <a-entity mixin="border-pantalla" scale="3 2 0" position="12 0 29"></a-entity>
+        </a-entity>
+
       </a-scene>
 
 
