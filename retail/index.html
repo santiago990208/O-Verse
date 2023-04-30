@@ -49,6 +49,16 @@
           }
         }
     </style>
+
+    <script>
+      AFRAME.registerComponent("link-click", {
+        init: function() {
+          this.el.addEventListener("click", (e) => {
+            window.location = this.data.href;
+          })
+        }
+      })
+    </script>
   </head>
   <body>
     <div id="logo-container">
@@ -59,16 +69,18 @@
 
         <!-- Store scene -->
         <a-entity
-          gltf-model="store_in_the_mall.glb"
+          gltf-model="Mall3.glb"
           position="0 0 0"
           scale="0.08 0.08 0.08"
           rotation="0 0 0"
         ></a-entity>
         <!-- Ambient light -->
-        <!-- <a-entity light="type: ambient; intensity: 1"></a-entity> -->
+        <a-entity light="type: ambient; intensity: 0.55"></a-entity>
 
         <!-- Directional light -->
-        <!-- <a-entity light="type: directional; intensity: 1" position="-1 1 1"></a-entity> -->
+        <a-entity light="type: hemisphere; intensity: 0.2" position="15 20 9"></a-entity> 
+        <a-entity light="type: hemisphere; intensity: 0.5" position="12 20 18"></a-entity> 
+        
 
         <!-- Camera with navigation controls -->
         <a-entity id="cameraRig"
@@ -97,7 +109,7 @@
           <a-gltf-model id="cashier-glft" shadow="receive:true;cast:true;" src="assets/objects/cashier.glb"  crossorigin="anonymous"></a-gltf-model>
           <a-gltf-model id="dressing-room-glft" shadow="receive:true;cast:true;" src="assets/objects/dressing-room.glb"  crossorigin="anonymous"></a-gltf-model>
           <a-gltf-model id="dress-door-glft" shadow="receive:true;cast:true;" src="assets/objects/dress-door.glb"  crossorigin="anonymous"></a-gltf-model>
-          <a-gltf-model id="curtain-glft" shadow="receive:true;cast:true;" src="assets/objects/curtain.glb"  crossorigin="anonymous"></a-gltf-model>
+          <a-gltf-model id="curtain-glft" shadow="receive:true;cast:true;" src="assets/objects/curtain2.glb"  crossorigin="anonymous" ></a-gltf-model>
           <a-gltf-model id="clienta1-glft" shadow="receive:true;cast:true;" src="assets/objects/clienta1.glb"  crossorigin="anonymous"></a-gltf-model>
           <a-gltf-model id="clienta2-glft" shadow="receive:true;cast:true;" src="assets/objects/clienta2.glb"  crossorigin="anonymous"></a-gltf-model>
           <a-gltf-model id="cliente-glft" shadow="receive:true;cast:true;" src="assets/objects/cliente.glb"  crossorigin="anonymous"></a-gltf-model>
@@ -113,7 +125,7 @@
 
         <!-- Textures -->
         <a-asset>
-        <img id="texturamadera" src="assets/images/textures/madera.png"  crossorigin="anonymous"/>
+        <img id="texturamadera" src="assets/images/textures/madera2.png"  crossorigin="anonymous"/>
         </a-asset>
 
         <!-- Environment -->
@@ -148,7 +160,7 @@
             <a-entity gltf-model="#cajera-glft"  position="19 0 23" rotation="0 -90 0" scale="2.8 2.8 2.8"></a-entity>
             <a-entity gltf-model="#cashier-glft"  position="17 2 23" rotation="0 90 0" scale="30 30 30"></a-entity>
             <a-entity gltf-model="#dressing-room-glft"  position="30 5.5 16.7" rotation="0 -90 0" scale="5 5 5"></a-entity>
-            <a-entity gltf-model="#curtain-glft"  position="31 0 15.5" rotation="0 -90 0" scale="3 3 3"></a-entity>
+            <a-entity gltf-model="#curtain-glft"  position="31 0 15.5" rotation="0 -90 0" scale="3 3 3" link-click="href: probador.html"></a-entity>
             <a-entity gltf-model="#clienta1-glft"  position="27 0 16" rotation="0 70 0" scale="2.8 2.8 2.8"></a-entity>
             <a-entity gltf-model="#clienta2-glft"  position="15 0 23" rotation="0 90 0" scale="2.8 2.8 2.8"></a-entity>
             <a-entity gltf-model="#cliente-glft"  position="15 0 6" rotation="0 -140 0" scale="2.8 2.8 2.8"></a-entity>
@@ -178,7 +190,7 @@
           width="2.4"
           height="2.4"
           depth="0.1"
-          color="yellow"
+          color="#BAB8B8"
           ></a-box>          
           <a-image id="publicidad1-bolsos"
           rotation="0 180 0"
@@ -194,7 +206,7 @@
           width="3.5"
           height="3"
           depth="0.1"
-          color="yellow"
+          color="#A1C4F8"
           ></a-box>   
           <a-image id="publicidad3-lacoste"
           rotation="0 -180 0"
@@ -210,7 +222,7 @@
           width="2.4"
           height="2.4"
           depth="0.1"
-          color="yellow"
+          color="#A1C4F8"
           ></a-box>          
           <a-image id="publicidad2-personas"
           rotation="0 180 0"
@@ -225,12 +237,12 @@
           <a-box id="letero-dressing-room"
           rotation="0 90 0"
           position="29 6 16.7"
-          width="5"
+          width="4.5"
           height="1"
           depth="0.2"
           repeat="5 5"
-          color="yellow"
-          link-click="probador.html"
+          color="#A1C4F8"
+          link-click="href:probador.html"
           ></a-box>
 
           <a-box id="pared-izquierda"
