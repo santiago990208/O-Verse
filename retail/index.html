@@ -114,6 +114,11 @@
         <img id="texturamadera" src="assets/images/textures/madera.png"  crossorigin="anonymous"/>
         </a-asset>
 
+        <!-- Environment -->
+        <a-asset>
+          <img id="environment" src="assets/images/information/environment.jpeg"  crossorigin="anonymous"/>
+        </a-asset>
+
         <!-- Information --> 
         <a-asset>
           <img id="QR" src="assets/images/information/QR.jpg"  crossorigin="anonymous"/>
@@ -152,6 +157,9 @@
             <a-entity gltf-model="#women-glft"  position="-3 0 22" rotation="0 75 0" scale="2.8 2.8 2.8"></a-entity>
             <a-entity gltf-model="#man-glft"  position="-3.5 0 23.4" rotation="0 120 0" scale="2.8 2.8 2.8"></a-entity>
           </a-entity>
+
+          <!-- Entorno -->
+          <a-sky position="6 0 15" src="#environment" radius="280" scale="0.08 0.08 0.08" theta-start="50" theta-length="50" phi-length="180" phi-start="-94"></a-sky> 
 
           <a-image id="QR"
           rotation="0 -90 0"
@@ -219,6 +227,7 @@
           depth="0.2"
           repeat="5 5"
           color="yellow"
+          link-click="probador.html"
           ></a-box>
 
           <a-box id="pared-izquierda"
