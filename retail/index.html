@@ -73,7 +73,7 @@
             class="navmesh-hole"
             rotation="-90 0 0"
             position="100 0 0"
-            width="300"
+            width="400"
             height="90"
             color="#FFF"
             visible="true"
@@ -81,7 +81,7 @@
           <a-plane id="limitante-izquierda-hueco"
             class="navmesh-hole"
             rotation="-90 0 0"
-            position="-150 0 -40"
+            position="-50 0 -40"
             width="200"
             height="20"
             color="#FFF"
@@ -91,30 +91,66 @@
           class="navmesh-hole"
           rotation="-90 0 0"
           position="100 0 400"
-          width="300"
+          width="400"
           height="90"
           color="#FFF"
           visible="true"
         ></a-plane>
+
         <a-plane id="limitante-izquierda-hueco"
         class="navmesh-hole"
         rotation="-90 0 0"
-        position="-150 0 455"
+        position="-50 0 440"
         width="200"
         height="20"
         color="#FFF"
         visible="true"
       ></a-plane>
 
-        <a-plane id="limitante-derecha-pared3"
-        class="navmesh-hole"
-        rotation="-90 0 0"
-        position="-150 0 -40"
-        width="0"
-        height="200"
-        color="#FFF"
-        visible="true"
-      ></a-plane>
+    
+
+     <!--Probador -->
+   
+     <a-plane id="limitante-izquierda-probador"
+     class="navmesh-hole"
+     rotation="-90 0 0"
+     position="400 0 130"
+     width="200"
+     height="20"
+     color="#FFF"
+     visible="true"
+   ></a-plane>
+  
+   <a-plane id="limitante-derecha-probador"
+   class="navmesh-hole"
+   rotation="-90 0 0"
+   position="400 0 275"
+   width="200"
+   height="20"
+   color="#FFF"
+   visible="true"
+></a-plane>
+
+    <!--Probador paredes externas-->
+ <a-plane id="limitante-derecha-probador-pared"
+     class="navmesh-hole"
+     rotation="-90 90 0"
+     position="290 0 90"
+     width="100"
+     height="20"
+     color="#FFF"
+     visible="true"
+ ></a-plane>
+ <a-plane id="limitante-derecha-probador-pared"
+ class="navmesh-hole"
+ rotation="-90 90 0"
+ position="290 0 315"
+ width="100"
+ height="20"
+ color="#FFF"
+ visible="true"
+></a-plane>
+      
         </a-entity>
         <!-- Ambient light -->
         <!-- <a-entity light="type: ambient; intensity: 1"></a-entity> -->
@@ -172,7 +208,7 @@
         <!-- Dressing room -->
         <a-entity id="entorno" class="objectclick">
           <a-box id="letero-dressing-room"
-          rotation="0 90 0"
+          rotation="-90 0 0"
           position="29 6 16.7"
           width="5"
           height="1"
