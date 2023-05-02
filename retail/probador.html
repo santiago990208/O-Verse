@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <h1>O-verse Dressing Room</h1>
+    <style>
+        h1 {
+			text-align: center;
+            font-family: Arial, sans-serif;
+            z-index: -1;
+            top: 50%;
+			left: 50%;
+			transform: translate(0%, -50%);
+		}
+		video {
+			width: 640px;
+			height: 360px;
+            position: absolute;
+			top: 50%;
+			left: 50%;
+			transform: translate(-50%, -90%);
+		}
+
+        body {
+			background-image: url("assets/images/information/probador1.jpg");
+			background-repeat: no-repeat;
+			background-size: cover;
+		}
+        img {
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			transform: translate(-50%, -10%);
+		}
+	</style>
+  </head>
+  <body>
+    <video id="camera-view"></video>
+    <img id="img" src="assets/images/information/blouse.png" width="400">
+
+    <script>
+      // Get access to the camera
+      navigator.mediaDevices.getUserMedia({ video: true })
+        .then(function(stream) {
+          // Display the camera video in the <video> element
+          var video = document.getElementById('camera-view');
+          video.srcObject = stream;
+          video.play();
+        })
+        .catch(function(error) {
+          console.log('Error accessing camera:', error);
+        });
+    </script>
+  </body>
+</html>

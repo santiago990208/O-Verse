@@ -139,10 +139,14 @@ AFRAME.registerComponent('simple-navmesh-constraint', {
       }
     }())
 });
+
+
 AFRAME.registerComponent("link-click", {
     init: function() {
+        
         this.el.addEventListener('click', function (evt) { 
             var elClass = this.getAttribute('class');
+            console.log(elClass);
             if(elClass == 'windowsoutclick'){
               window.open(this.getAttribute('link-click').https, '_blank');
             }else{
@@ -150,7 +154,9 @@ AFRAME.registerComponent("link-click", {
             }
         });
         this.el.addEventListener('mouseenter', function (evt) { 
+          console.log("entró");
           var elClass = this.getAttribute('class');
+          console.log(elClass);
           if(elClass == 'windowsoutclick'){
             document.querySelector('#mainCursor').setAttribute('material', 'color', 'red');
           }else if(elClass == 'windowsinclick'){
