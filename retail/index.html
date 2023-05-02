@@ -74,10 +74,22 @@
             color="blue"
             visible="true"
           ></a-plane>
+
+        <!--Entrada -->
+          <a-plane id="limitante-pared-entrada"
+          class="navmesh-hole"
+          rotation="-90 90 0"
+          position="-160 0 315"
+          width="730"
+          height="20"
+          color="#FFF"
+          visible="true"
+        ></a-plane>
+
           <a-plane id="limitante-izquierda-pared"
             class="navmesh-hole"
             rotation="-90 0 0"
-            position="100 0 0"
+            position="120 0 0"
             width="400"
             height="90"
             color="#FFF"
@@ -119,8 +131,8 @@
      <a-plane id="limitante-izquierda-probador"
      class="navmesh-hole"
      rotation="-90 0 0"
-     position="400 0 130"
-     width="200"
+     position="420 0 170"
+     width="260"
      height="20"
      color="#FFF"
      visible="true"
@@ -129,8 +141,8 @@
    <a-plane id="limitante-derecha-probador"
    class="navmesh-hole"
    rotation="-90 0 0"
-   position="400 0 275"
-   width="200"
+   position="400 0 240"
+   width="260"
    height="20"
    color="#FFF"
    visible="true"
@@ -140,17 +152,18 @@
  <a-plane id="limitante-derecha-probador-pared"
      class="navmesh-hole"
      rotation="-90 90 0"
-     position="290 0 90"
-     width="100"
+     position="280 0 90"
+     width="180"
      height="20"
      color="#FFF"
      visible="true"
  ></a-plane>
- <a-plane id="limitante-derecha-probador-pared"
+
+ <a-plane id="limitante-izquierda-probador-pared"
  class="navmesh-hole"
  rotation="-90 90 0"
- position="290 0 315"
- width="100"
+ position="280 0 315"
+ width="140"
  height="20"
  color="#FFF"
  visible="true"
@@ -226,32 +239,284 @@
         <!-- Decoration -->
         <a-entity id="decoration-world">
           <a-entity id="living-room">
-            <a-entity gltf-model="#sofa-glft"  position="5 1 10" rotation="0 -50 0" scale="1 1 1"></a-entity>
+            <a-entity gltf-model="#sofa-glft"  position="5 1 10" rotation="0 -50 0" scale="1 1 1">
+            
+            <a-plane id="limitante-izquierda-hueco"
+              class="navmesh-hole"
+              rotation="-90 0 0"
+              position="0 0 0"
+              width="5"
+              height="5"
+              color="#FFF"
+              visible="true"
+            ></a-plane>
+            </a-entity>
+           
+      
             <a-entity gltf-model="#sofa-glft"  position="5 1 20" rotation="0 110 0" scale="1 1 1"></a-entity>
+            <a-plane id="limitante-izquierda-hueco"
+            class="navmesh-hole"
+            rotation="-90 0 0"
+            position="0 0 0"
+            width="5"
+            height="5"
+            color="#FFF"
+            visible="true"
+          ></a-plane>
+           </a-entity>
+               
             <a-entity gltf-model="#sofa2-glft"  position="9.5 0 11.5" rotation="0 -60 0" scale="0.9 0.9 0.9">
               <a-plane rotation="-90 0 0" width="5" height="5" position="0 0 0" class="navmesh-hole" color="#FFF" visible="true"></a-plane>
             </a-entity>
-            <a-entity gltf-model="#sofa2-glft"  position="10.5 0 15.5" rotation="0 -120 0" scale="0.9 0.9 0.9"></a-entity>
-            <a-entity gltf-model="#sofa2-glft"  position="-1.5 0 13.5" rotation="0 60 0" scale="0.9 0.9 0.9"></a-entity>
-            <a-entity gltf-model="#sofa2-glft"  position="-0.5 0 17.5" rotation="0 120 0" scale="0.9 0.9 0.9"></a-entity>
-            <a-entity gltf-model="#table-glft"  position="4.5 0 15.5" rotation="0 120 0" scale="2 2 2"></a-entity>
-            <a-entity gltf-model="#cajera-glft"  position="19 0 23" rotation="0 -90 0" scale="2.8 2.8 2.8"></a-entity>
-            <a-entity gltf-model="#cashier-glft"  position="17 2 23" rotation="0 90 0" scale="30 30 30"></a-entity>
+         
+         <!-- Information  Revisar
+            <a-entity gltf-model="#sofa2-glft"  position="10.5 0 15.5" rotation="0 -120 0" scale="0.9 0.9 0.9">
+              <a-plane id="limitante-izquierda-hueco"
+            class="navmesh-hole"
+            rotation="-90 0 0"
+            position="0 0 0"
+            width="5"
+            height="5"
+            color="#FFF"
+            visible="true"
+          ></a-plane>
+          -->
 
-            <a-entity gltf-model="#dressing-room-glft"  position="30 5.5 16.7" rotation="0 -90 0" scale="5 5 5"></a-entity>
-            <a-entity gltf-model="#curtain-glft"  position="31 0 15.5" rotation="0 -90 0" scale="3 3 3" link-click="probador.html"></a-entity>
+ 
+            </a-entity>
+            
+            <a-entity gltf-model="#sofa2-glft"  position="-1.5 0 13.5" rotation="0 60 0" scale="0.9 0.9 0.9">
+              <a-plane id="limitante-izquierda-hueco"
+              class="navmesh-hole"
+              rotation="-90 0 0"
+              position="0 0 0"
+              width="5"
+              height="5"
+              color="#FFF"
+              visible="true"
+            ></a-plane>
+            </a-entity>
+            
+            <a-entity gltf-model="#sofa2-glft"  position="-0.5 0 17.5" rotation="0 120 0" scale="0.9 0.9 0.9">
+              <a-plane id="limitante-izquierda-hueco"
+              class="navmesh-hole"
+              rotation="-90 0 0"
+              position="0 0 0"
+              width="5"
+              height="5"
+              color="#FFF"
+              visible="true"
+            ></a-plane>
+            </a-entity>
+          
+            <a-entity gltf-model="#table-glft"  position="4.5 0 15.5" rotation="0 120 0" scale="2 2 2">
+              <a-plane id="limitante-izquierda-hueco"
+              class="navmesh-hole"
+              rotation="-90 0 0"
+              position="0 0 0"
+              width="5"
+              height="5"
+              color="#FFF"
+              visible="true"
+            ></a-plane>
+            </a-entity>
+           <!-- Information REVISAR PUNTO DE PAGO  
+            <a-entity gltf-model="#cajera-glft"  position="19 0 23" rotation="0 -90 0" scale="2.8 2.8 2.8">
+              <a-plane id="limitante-izquierda-hueco"
+              class="navmesh-hole"
+              rotation="-90 0 0"
+              position="0 0 0"
+              width="5"
+              height="5"
+              color="#FFF"
+              visible="true"
+            ></a-plane>
+            </a-entity>
+            -->
+      <!-- Information  REVISAR 
+            <a-entity gltf-model="#cashier-glft"  position="17 2 23" rotation="0 90 0" scale="30 30 30">
+            
+               <a-plane id="limitante-izquierda-hueco"
+              class="navmesh-hole"
+              rotation="-90 0 0"
+              position="0 0 0"
+              width="5"
+              height="5"
+              color="#FFF"
+              visible="true"
+            ></a-plane> 
+            </a-entity>-->
+   
+<!-- Information  REVISAR
+            <a-entity gltf-model="#dressing-room-glft"  position="30 5.5 16.7" rotation="0 -90 0" scale="5 5 5">
+              <a-plane id="limitante-izquierda-hueco"
+              class="navmesh-hole"
+              rotation="-90 0 0"
+              position="0 0 0"
+              width="5"
+              height="5"
+              color="#FFF"
+              visible="true"
+            ></a-plane>
+            </a-entity>
+          -->
 
-            <a-entity gltf-model="#clienta1-glft"  position="27 0 16" rotation="0 70 0" scale="2.8 2.8 2.8"></a-entity>
-            <a-entity gltf-model="#clienta2-glft"  position="15 0 23" rotation="0 90 0" scale="2.8 2.8 2.8"></a-entity>
-            <a-entity gltf-model="#cliente-glft"  position="15 0 6" rotation="0 -140 0" scale="2.8 2.8 2.8"></a-entity>
-            <a-entity gltf-model="#empleado-glft"  position="10 0 4" rotation="0 -250 0" scale="2.8 2.8 2.8"></a-entity>
-            <a-entity gltf-model="#dependiente-glft"  position="14 0 29" rotation="0 180 0" scale="2.8 2.8 2.8"></a-entity>
-            <a-entity gltf-model="#cashier-glft"  position="14 2 26.5" rotation="0 360 0" scale="30 30 30"></a-entity>
-            <a-entity gltf-model="#cliente2-glft"  position="2 0 30" rotation="0 -45 0" scale="2.8 2.8 2.8"></a-entity>
-            <a-entity gltf-model="#women-glft"  position="-3 0 22" rotation="0 75 0" scale="2.8 2.8 2.8"></a-entity>
-            <a-entity gltf-model="#man-glft"  position="-3.5 0 23.4" rotation="0 120 0" scale="2.8 2.8 2.8"></a-entity>
-            <a-entity id="guardia" gltf-model="#guardia-glb" position="9 0 29" scale="2.5 2.5 2.5" rotation="0 -135 0"></a-entity> 
-          </a-entity>
+
+          <!-- Information  REVISAR
+            <a-entity gltf-model="#curtain-glft"  position="31 0 15.5" rotation="0 -90 0" scale="3 3 3" link-click="probador.html">
+              <a-plane id="limitante-izquierda-hueco"
+              class="navmesh-hole"
+              rotation="-90 0 0"
+              position="0 0 0"
+              width="5"
+              height="5"
+              color="#FFF"
+              visible="true"
+            ></a-plane>
+            </a-entity>
+-->
+         <!-- Information  REVISAR Cliente 1
+            <a-entity gltf-model="#clienta1-glft"  position="27 0 16" rotation="0 70 0" scale="2.8 2.8 2.8">
+              <a-plane id="limitante-izquierda-hueco"
+              class="navmesh-hole"
+              rotation="-90 0 0"
+              position="0 0 0"
+              width="5"
+              height="5"
+              color="#FFF"
+              visible="true"
+            ></a-plane>
+            </a-entity>
+          -->
+
+           <!-- Information  REVISAR
+            <a-entity gltf-model="#clienta2-glft"  position="15 0 23" rotation="0 90 0" scale="2.8 2.8 2.8">
+              <a-plane id="limitante-izquierda-hueco"
+              class="navmesh-hole"
+              rotation="-90 0 0"
+              position="0 0 0"
+              width="5"
+              height="5"
+              color="#FFF"
+              visible="true"
+            ></a-plane>
+            </a-entity>
+             -->
+
+            <!-- Information  REVISAR
+            <a-entity gltf-model="#cliente-glft"  position="15 0 6" rotation="0 -140 0" scale="2.8 2.8 2.8">
+              <a-plane id="limitante-izquierda-hueco"
+              class="navmesh-hole"
+              rotation="-90 0 0"
+              position="0 0 0"
+              width="5"
+              height="5"
+              color="#FFF"
+              visible="true"
+            ></a-plane>
+            </a-entity>
+             -->
+              <!-- Information  REVISAR Cuadro pared izquierda
+            <a-entity gltf-model="#empleado-glft"  position="10 0 4" rotation="0 -250 0" scale="2.8 2.8 2.8">
+              <a-plane id="limitante-izquierda-hueco"
+              class="navmesh-hole"
+              rotation="-90 0 0"
+              
+              height="5"
+              color="#FFF"
+              visible="true"
+            ></a-plane>
+            </a-entity>
+            -->
+          
+           <!-- Information 
+            <a-entity gltf-model="#dependiente-glft"  position="14 0 29" rotation="0 180 0" scale="2.8 2.8 2.8">
+              <a-plane id="limitante-izquierda-hueco"
+              class="navmesh-hole"
+              rotation="-90 0 0"
+              position="0 0 0"
+              width="5"
+              height="5"
+              color="#FFF"
+              visible="true"
+            ></a-plane>
+            </a-entity>
+
+            -->
+          <!-- Information  REVISAR
+            <a-entity gltf-model="#cashier-glft"  position="14 2 26.5" rotation="0 360 0" scale="30 30 30">
+              <a-plane id="limitante-izquierda-hueco"
+              class="navmesh-hole"
+              rotation="-90 0 0"
+              position="0 0 0"
+              width="5"
+              height="5"
+              color="#FFF"
+              visible="true"
+            ></a-plane>
+            </a-entity>
+   
+-->
+     <!-- Information Cliente 2
+            <a-entity gltf-model="#cliente2-glft"  position="2 0 30" rotation="0 -45 0" scale="2.8 2.8 2.8">
+              <a-plane id="limitante-izquierda-hueco"
+              class="navmesh-hole"
+              rotation="-90 0 0"
+              position="0 0 0"
+              width="5"
+              height="5"
+              color="#FFF"
+              visible="true"
+            ></a-plane>
+            </a-entity>
+           -->
+
+   <!-- Informatio Mujer 1
+            <a-entity gltf-model="#women-glft"  position="-3 0 22" rotation="0 75 0" scale="2.8 2.8 2.8">
+              <a-plane id="limitante-izquierda-hueco"
+              class="navmesh-hole"
+              rotation="-90 0 0"
+              position="0 0 0"
+              width="5"
+              height="5"
+              color="#FFF"
+              visible="true"
+            ></a-plane>
+            </a-entity>
+       
+  --> 
+
+   <!-- Informatio Hombre
+            <a-entity gltf-model="#man-glft"  position="-3.5 0 23.4" rotation="0 120 0" scale="2.8 2.8 2.8">
+              <a-plane id="limitante-izquierda-hueco"
+              class="navmesh-hole"
+              rotation="-90 0 0"
+              position="0 0 0"
+              width="5"
+              height="5"
+              color="#FFF"
+              visible="true"
+            ></a-plane>
+            </a-entity>
+           
+  --> 
+         <!-- Informatio  Guardia
+            <a-entity id="guardia" gltf-model="#guardia-glb" position="9 0 29" scale="2.5 2.5 2.5" rotation="0 -135 0">
+              
+              <a-plane id="limitante-izquierda-hueco"
+              class="navmesh-hole"
+              rotation="-90 0 0"
+              position="0 0 0"
+              width="5"
+              height="5"
+              color="#FFF"
+              visible="true"
+            ></a-plane>
+
+            </a-entity> 
+          --> 
+         
+      
 
           <!-- Entorno -->
           <a-sky position="6 0 15" src="#environment" radius="280" scale="0.08 0.08 0.08" theta-start="50" theta-length="50" phi-length="180" phi-start="-94"></a-sky> 
@@ -312,10 +577,12 @@
           src="#publicidad2"
           ></a-image>
 
+
+
         <!-- Dressing room -->
         <a-entity id="entorno" class="objectclick">
           <a-box id="letero-dressing-room"
-          rotation="-90 0 0"
+          rotation="0 90 0"
           position="29 6 16.7"
           width="4.5"
           height="1"
