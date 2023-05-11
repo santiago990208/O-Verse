@@ -10,6 +10,7 @@
     <script src="assets/js/main.js"></script> <!--link del archivo en object storage-->
     <script src="https://rawgit.com/rdub80/aframe-gui/master/dist/aframe-gui.min.js"></script> <!-- libreria para radio button funcione -->
     <script src="assets/js/FAQ-funciones.js"></script>
+
     <style>
       #aframe-scene {
         display: none;
@@ -54,6 +55,17 @@
     </style>
 
     
+    <link rel="stylesheet" type="text/css" href="./assets/css/main.css">
+    <script>
+      AFRAME.registerComponent("link-click", {
+        init: function() {
+          this.el.addEventListener("click", (e) => {
+            window.location = this.data.href;
+          })
+        }
+      })
+    </script>
+
   </head>
   <body>
     <div id="logo-container">
