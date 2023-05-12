@@ -10,7 +10,7 @@
     <script src="https://unpkg.com/aframe-environment-component@1.0.0/dist/aframe-environment-component.min.js"></script>
     <script src="//cdn.rawgit.com/donmccurdy/aframe-extras/v3.13.1/dist/aframe-extras.min.js"></script>
     <script src="js/info-panel.js"></script>
-
+    <link rel="stylesheet" type="text/css" href="./assets/css/main.css">
     <script>
       AFRAME.registerComponent("link-click", {
         init: function() {
@@ -58,8 +58,8 @@
       <a-mixin id="barra-mesa" geometry="primitive: box; width: 3.4; height: 0.01; depth: 0.8;" static-body ></a-mixin>
       <a-mixin id="techo" geometry="primitive: box; width: 7; height: 0.01; depth: 13;" static-body ></a-mixin>
 
-      <a-mixin id="menu" geometry="primitive: box; width: 1.6; height: 2.6; depth: 0.01;"  ></a-mixin>
-      <a-mixin id="border-menu" geometry="primitive: box; width: 1.8; height: 2.8; depth: 0.01;"  ></a-mixin>
+        <a-mixin id="menu" geometry="primitive: box; width: 1.6; height: 2.6; depth: 0.01;"  ></a-mixin>
+        <a-mixin id="border-menu" geometry="primitive: box; width: 1.8; height: 2.8; depth: 0.01;"  ></a-mixin>
 
       <a-mixin id="cuadro1" geometry="primitive: box; width: 2; height: 1; depth: 0.01;"  ></a-mixin>
       <a-mixin id="border-cuadro1" geometry="primitive: box; width: 2.3; height: 1.3; depth: 0.01;"  ></a-mixin>
@@ -130,187 +130,271 @@
           <a-entity mixin="barranda barras"  position="-2.4 0 4.2"></a-entity>
         </a-entity>
         
-        <!-- lateral  -->
-        <!-- lateral oeste -->
-        <a-entity mixin="col paredes"  position="-2.7 0 2.3"></a-entity>
-        <a-entity id="barrandas-oeste-norte" position="-8.5 0 0">
-          <a-box mixin="barras" width="0.1" height="0.1" depth="1.9" position="5.8 1.2 3.2" static-body></a-box>
-          <a-entity mixin="barranda barras"  position="5.8 0 2.8"></a-entity>
-          <a-entity mixin="barranda barras"  position="5.8 0 3.2"></a-entity>
-          <a-entity mixin="barranda barras"  position="5.8 0 3.6"></a-entity>
-        </a-entity>
-        <a-entity mixin="col paredes"  position="-2.7 0 -2.3"></a-entity>
-        <a-entity id="barrandas-este-sur" position="-8.5 0 -6.5">
-          <a-box mixin="barras" width="0.1" height="0.1" depth="1.9" position="5.8 1.2 3.2" static-body></a-box>
-          <a-entity mixin="barranda barras"  position="5.8 0 2.8"></a-entity>
-          <a-entity mixin="barranda barras"  position="5.8 0 3.2"></a-entity>
-          <a-entity mixin="barranda barras"  position="5.8 0 3.6"></a-entity>
-        </a-entity>
-        <!-- lateral este -->
-        <a-entity mixin="col paredes"  position="5.8 0 2.3"></a-entity>
-        <a-entity id="barrandas-este norte" position="0 0 0">
-          <a-box mixin="barras" width="0.1" height="0.1" depth="1.9" position="5.8 1.2 3.2" static-body></a-box>
-          <a-entity mixin="barranda barras"  position="5.8 0 2.8"></a-entity>
-          <a-entity mixin="barranda barras"  position="5.8 0 3.2"></a-entity>
-          <a-entity mixin="barranda barras"  position="5.8 0 3.6"></a-entity>
-        </a-entity>
-        <a-entity mixin="col paredes"  position="5.8 0 -2.3"></a-entity>
-        <a-entity id="barrandas-este-sur" position="0 0 -6.5">
-          <a-box mixin="barras" width="0.1" height="0.1" depth="1.9" position="5.8 1.2 3.2" static-body></a-box>
-          <a-entity mixin="barranda barras"  position="5.8 0 2.8"></a-entity>
-          <a-entity mixin="barranda barras"  position="5.8 0 3.2"></a-entity>
-          <a-entity mixin="barranda barras"  position="5.8 0 3.6"></a-entity>
-        </a-entity>
+        <a-mixin id="techos" material="src: #src-techo"></a-mixin>
+        <a-mixin id="barras" material="src: #src-barra"></a-mixin>
+        <a-mixin id="barras-mesas" material="color: white"></a-mixin>
+        <a-mixin id="paredes" material="src: #src-pared"></a-mixin>
+        <a-mixin id="menus" material="src: #src-menu"></a-mixin>
+        <a-mixin id="img-cuadro1" material="src: #src-cuadro1"></a-mixin>
+        <a-mixin id="img-cuadro2" material="src: #src-cuadro2"></a-mixin>
+        <a-mixin id="menus" material="src: #src-menu"></a-mixin>
+        <a-mixin id="pelotas" material="src: #src-pelota"></a-mixin>
 
+        <a-mixin id="borders" material="color: black"></a-mixin>
 
-        <!-- Columnas Techo-->
-        <a-box mixin="paredes"width="8.7" height="0.2" depth="0.2" position="1.55 4.1 4.2" static-body></a-box>
-        <a-box mixin="paredes"width="8.7" height="0.2" depth="0.2" position="1.55 4.1 -4.2" static-body></a-box>
-        <a-box mixin="paredes"width="0.2" height="0.2" depth="8.6" position="-2.7 4.1 0" static-body></a-box>
-        <a-box mixin="paredes"width="0.2" height="0.2" depth="8.6" position="5.8 4.1 0" static-body></a-box>
+        <a-mixin id="tablas" gltf-model="#tabla-surf"></a-mixin>
+        <a-mixin id="palmeras" gltf-model="#palmera"></a-mixin>
+        <a-mixin id="mesas-sombrilla" gltf-model="#mesa-sombrilla"></a-mixin>
+        <a-mixin id="mesas-madera" gltf-model="#mesa-madera"></a-mixin>
+        <a-mixin id="butacos" gltf-model="#butaco"></a-mixin>
 
-      <!-- Barra -->
-      <a-entity mixin="barra barras"  position="1 0.3 -1.3"></a-entity>
-      <a-entity mixin="barra barras" position="2.5 0.3 -2.8" rotation="0 90 0"></a-entity>
-      <a-entity mixin="barra barras"  position="-0.5 0.3 -2.8" rotation="0 90 0"></a-entity>
+        <img id="thumbTesoro"  src="assets/tesoro-portal.png">
+      </a-assets>
 
-      <a-entity mixin="barra-mesa barras-mesas"  position="1 1.2 -1.295"></a-entity>
-      <a-entity mixin="barra-mesa barras-mesas" position="2.5 1.2 -2.6" rotation="0 90 0"></a-entity>
-      <a-entity mixin="barra-mesa barras-mesas"  position="-0.5 1.2 -2.6" rotation="0 90 0"></a-entity>
       
-      <!-- Paredes -->
-      
-      <a-entity id="pared-cuadro" mixin="pared paredes"  position="3.1 0 4.2"></a-entity>
-        <!-- cuadros -->
-        <a-entity mixin="cuadro1 img-cuadro1"  position="4 2.5 4"></a-entity>
-        <a-entity mixin="border-cuadro1 borders"  position="4 2.5 4.1"></a-entity>
-        <a-entity mixin="cuadro2 img-cuadro2"  position="2 1.5 4"></a-entity>
-        <a-entity mixin="border-cuadro2 borders"  position="2 1.5 4.1"></a-entity>
+        <a-entity camera look-controls universal-controls jump-ability kinematic-body position="-10 2 3" scale="0.5 0.5 0.5">
+          <a-entity id="mainCursor" position="0 0 -0.5"
+                    geometry="primitive: ring; radiusInner: 0.005; radiusOuter: 0.010"
+                    material="color: gray; shader: flat"
+                    cursor="rayOrigin: mouse">
+            <a-animation begin="click" easing="ease-in" attribute="scale"
+                fill="forwards" from="0.2 0.2 0.2" to="1 1 1" dur="150"></a-animation>
 
-      <a-entity id="pared-menu" mixin="pared paredes" scale=" 1 1 2.1" position="-0 0 -4.31"></a-entity>
-        <!-- Menu -->
-        <a-entity mixin="menu menus"  position="1 2.5 -4" link-click="href: menu/"></a-entity>
-        <a-entity mixin="border-menu borders"  position="1 2.5 -4.1"></a-entity>
-
-        <!-- Logos -->
-        <a-image src="#src-logo" scale="3 3 3" rotation="0 360 0" position="3 2 4.5"></a-image>
-
-
-      <!-- Techo -->
-      <a-entity mixin="techo techos"  position="1.7 5 -3"  rotation="0 90 -30"></a-entity>
-      <a-entity mixin="techo techos"  position="1.7 5 3"  rotation="0 90 30"></a-entity>
-
-      <!-- Piso --> 
-      <a-plane id="arena"  static-body
-            class="navmesh"
-            rotation="-90 0 0"
-            position="0 0 0"
-            width="80"
-            height="80"
-            repeat="25 25"
-            src="#arena"></a-plane>
-
-       <!-- Cielo -->
-      <a-sky src="#cielo" scale="0.1 0.1 0.1" theta-start="-40" ></a-sky> 
-      
-      <!-- Piso restaurante -->
-      <a-plane id="piso-restaurante"
-      rotation="-90 0 0"
-      position="2.7 0.01 2"
-      width="32"
-      height="16"
-      src="#src-camino"
-      ></a-plane>
-
-
-      <!-- Tablas surf -->
-      <a-entity mixin="tablas" position="22 0 -8" scale="1 1.4 1"static-body></a-entity>
-      <a-entity mixin="tablas" position="22 0 -9" scale="1 1.2 1"static-body></a-entity>
-      <a-entity mixin="tablas" position="22 0 -10" scale="1 1 1"static-body></a-entity>
-
-      <!-- Social Media -->
-      <a-image src="#src-youtube" position="30 2 5" scale="1.2 1 1" rotation="0 -90 0" link-click="href: https://www.youtube.com/channel/UC_hsfJD7V14WPeeFgf3H9xA"></a-image>
-      <a-image src="#src-instagram" position="30 2 7" scale="1.2 1 1" rotation="0 -90 0" link-click="href: https://www.instagram.com/elbarquitodecolon/"></a-image>
-      <a-image src="#src-tiktok" position="30 2 9" scale="1.2 1 1" rotation="0 -90 0" link-click="href: https://www.tiktok.com/@elbarquitodecolon"></a-image>
-
-      <!-- Palmeras -->
-      <a-entity mixin="palmeras" position="-10 0 3" scale="4 4 4"></a-entity>
-      <a-entity mixin="palmeras" position="-12 0 4" scale="4 4 4"></a-entity>
-      <a-entity mixin="palmeras" position="-14 0 6" scale="4 4 4"></a-entity>
-      <a-entity mixin="palmeras" position="-16 0 8" scale="4 4 4"></a-entity>
-      <a-entity mixin="palmeras" position="-17 0 10" scale="4 4 4"></a-entity>
-
-      <a-entity mixin="palmeras" position="-14 0 12" scale="4 4 4"></a-entity>
-      <a-entity mixin="palmeras" position="-12 0 10" scale="4 4 4"></a-entity>
-      <a-entity mixin="palmeras" position="-10 0 8" scale="4 4 4"></a-entity>
-
-      <a-entity mixin="palmeras" position="10 0 0" scale="4 4 4"></a-entity>
-      <a-entity mixin="palmeras" position="8 0 1" scale="4 4 4"></a-entity>
-      <a-entity mixin="palmeras" position="6 0 1.5" scale="4 4 4"></a-entity>
-      <a-entity mixin="palmeras" position="4 0 1.7" scale="4 4 4"></a-entity>
-
-      <a-entity mixin="palmeras" position="12 0 2.5" scale="4 4 4"></a-entity>
-      <a-entity mixin="palmeras" position="10 0 3.5" scale="4 4 4"></a-entity>
-      <a-entity mixin="palmeras" position="8 0 4.3" scale="4 4 4"></a-entity>
-      <a-entity mixin="palmeras" position="6 0 5" scale="4 4 4"></a-entity>
-      <a-entity mixin="palmeras" position="4 0 5.5" scale="4 4 4"></a-entity>
-
-
-
-       <!-- mesas afuera -->
-       <a-entity mixin="mesas-sombrilla" position="15 0 -8" scale="0.5 0.45 0.5" ></a-entity>
-       <a-entity mixin="mesas-madera" static-body position="15 0.4 -8" rotation="0 90 0" scale="0.35 0.35 0.35" ></a-entity>
-       <a-entity mixin="mesas-sombrilla" position="15 0 4" scale="0.5 0.45 0.5" ></a-entity>
-       <a-entity mixin="mesas-madera" static-body position="15 0.4 4" rotation="0 90 0" scale="0.35 0.35 0.35" ></a-entity>
-
-       <a-entity mixin="mesas-sombrilla" position="-2 0 9" scale="0.5 0.45 0.5" ></a-entity>
-       <a-entity mixin="mesas-madera" static-body position="-2 0.4 9" rotation="0 180 0" scale="0.35 0.35 0.35" ></a-entity>
-       <a-entity mixin="mesas-sombrilla" position="2 0 13" scale="0.5 0.45 0.5" ></a-entity>
-       <a-entity mixin="mesas-madera" static-body position="2 0.4 13" rotation="0 180 0" scale="0.35 0.35 0.35" ></a-entity>
-
-       <a-entity mixin="mesas-sombrilla" position="6 0 9" scale="0.5 0.45 0.5" ></a-entity>
-       <a-entity mixin="mesas-madera" static-body position="6 0.4 9" rotation="0 180 0" scale="0.35 0.35 0.35" ></a-entity>
-       <a-entity mixin="mesas-sombrilla" position="-8 0 -5" scale="0.5 0.45 0.5" ></a-entity>
-       <a-entity mixin="mesas-madera" static-body position="-8 0.4 -5" rotation="0 90 0" scale="0.35 0.35 0.35" ></a-entity>
-       
-
-       <!-- butaco -->
-       <a-entity mixin="butacos" static-body position="-0.5 0 -0.6" rotation="0 0 0" scale="0.015 0.015 0.015" ></a-entity>
-       <a-entity mixin="butacos" static-body position="1 0 -0.6" rotation="0 0 0" scale="0.015 0.015 0.015" ></a-entity>
-       <a-entity mixin="butacos" static-body position="2.5 0 -0.6" rotation="0 0 0" scale="0.015 0.015 0.015" ></a-entity>
-
-       <a-entity mixin="butacos" static-body position="-1.2 0 -1.3" rotation="0 0 0" scale="0.015 0.015 0.015" ></a-entity>
-       <a-entity mixin="butacos" static-body position="-1.2 0 -2.4" rotation="0 0 0" scale="0.015 0.015 0.015" ></a-entity>
-       <a-entity mixin="butacos" static-body position="-1.2 0 -3.5" rotation="0 0 0" scale="0.015 0.015 0.015" ></a-entity>
-       
-       <a-entity mixin="butacos" static-body position="3.2 0 -1.3" rotation="0 0 0" scale="0.015 0.015 0.015" ></a-entity>
-       <a-entity mixin="butacos" static-body position="3.2 0 -2.4" rotation="0 0 0" scale="0.015 0.015 0.015" ></a-entity>
-       <a-entity mixin="butacos" static-body position="3.2 0 -3.5" rotation="0 0 0" scale="0.015 0.015 0.015" ></a-entity>
-
-      <!-- Portal-->
-      <a-link href="tesoro/" 
-        scale="2 2 2" 
-        position="25 2.5 -6" 
-        rotation="0 -75 0"
-        image="#thumbTesoro"; scale="0.5 0.5 0.5"
-        backgroundColor="#25e9f4" 
-        borderColor="#2596be" 
-        title="Treasure Hunt"
-        titleColor="black"
-        peekMode="true"
-      ></a-link>
-      
-      <!-- Pelota playa -->
-      <a-entity position="10 5 0" dynamic-body>
-        <a-entity mixin="pelota pelotas">
+          </a-entity>
         </a-entity>
-      </a-entity>
-      <!-- Pelota playa -->
-      <a-entity position="-10 5 0" dynamic-body>
-        <a-entity mixin="pelota pelotas">
+      
+        <!-- Columnas -->
+          <!-- Norte  -->
+          <a-entity mixin="col paredes"  position="-2.7 0 -4.2"></a-entity>
+          <a-entity mixin="col paredes" position="2.7 0 -4.2"></a-entity>
+          <a-entity mixin="col paredes" position="5.8 0 -4.2"></a-entity>
+          <a-entity id="barrandas-norte" position="5.5 0 -8.4">
+            <a-box mixin="barras" width="2.9" height="0.1" depth="0.1" position="-1.2 1.2 4.2" static-body></a-box>
+            <a-entity mixin="barranda barras"  position="0 0 4.2"></a-entity>
+            <a-entity mixin="barranda barras"  position="-.4 0 4.2"></a-entity>
+            <a-entity mixin="barranda barras"  position="-0.8 0 4.2"></a-entity>
+            <a-entity mixin="barranda barras"  position="-1.2 0 4.2"></a-entity>
+            <a-entity mixin="barranda barras"  position="-1.6 0 4.2"></a-entity>
+            <a-entity mixin="barranda barras"  position="-2 0 4.2"></a-entity>
+            <a-entity mixin="barranda barras"  position="-2.4 0 4.2"></a-entity>
+          </a-entity>
+          <!-- Sur  -->
+          <a-entity mixin="col paredes"  position="0.4 0 4.2"></a-entity>
+          <a-entity mixin="col paredes"  position="-2.7 0 4.2"></a-entity>
+          <a-entity mixin="col paredes"  position="5.8 0 4.2"></a-entity>
+          <a-entity id="barrandas-sur" position="0 0 0">
+            <a-box mixin="barras" width="2.9" height="0.1" depth="0.1" position="-1.2 1.2 4.2" static-body></a-box>
+            <a-entity mixin="barranda barras"  position="0 0 4.2"></a-entity>
+            <a-entity mixin="barranda barras"  position="-.4 0 4.2"></a-entity>
+            <a-entity mixin="barranda barras"  position="-0.8 0 4.2"></a-entity>
+            <a-entity mixin="barranda barras"  position="-1.2 0 4.2"></a-entity>
+            <a-entity mixin="barranda barras"  position="-1.6 0 4.2"></a-entity>
+            <a-entity mixin="barranda barras"  position="-2 0 4.2"></a-entity>
+            <a-entity mixin="barranda barras"  position="-2.4 0 4.2"></a-entity>
+          </a-entity>
+          
+          <!-- lateral  -->
+          <!-- lateral oeste -->
+          <a-entity mixin="col paredes"  position="-2.7 0 2.3"></a-entity>
+          <a-entity id="barrandas-oeste-norte" position="-8.5 0 0">
+            <a-box mixin="barras" width="0.1" height="0.1" depth="1.9" position="5.8 1.2 3.2" static-body></a-box>
+            <a-entity mixin="barranda barras"  position="5.8 0 2.8"></a-entity>
+            <a-entity mixin="barranda barras"  position="5.8 0 3.2"></a-entity>
+            <a-entity mixin="barranda barras"  position="5.8 0 3.6"></a-entity>
+          </a-entity>
+          <a-entity mixin="col paredes"  position="-2.7 0 -2.3"></a-entity>
+          <a-entity id="barrandas-este-sur" position="-8.5 0 -6.5">
+            <a-box mixin="barras" width="0.1" height="0.1" depth="1.9" position="5.8 1.2 3.2" static-body></a-box>
+            <a-entity mixin="barranda barras"  position="5.8 0 2.8"></a-entity>
+            <a-entity mixin="barranda barras"  position="5.8 0 3.2"></a-entity>
+            <a-entity mixin="barranda barras"  position="5.8 0 3.6"></a-entity>
+          </a-entity>
+          <!-- lateral este -->
+          <a-entity mixin="col paredes"  position="5.8 0 2.3"></a-entity>
+          <a-entity id="barrandas-este norte" position="0 0 0">
+            <a-box mixin="barras" width="0.1" height="0.1" depth="1.9" position="5.8 1.2 3.2" static-body></a-box>
+            <a-entity mixin="barranda barras"  position="5.8 0 2.8"></a-entity>
+            <a-entity mixin="barranda barras"  position="5.8 0 3.2"></a-entity>
+            <a-entity mixin="barranda barras"  position="5.8 0 3.6"></a-entity>
+          </a-entity>
+          <a-entity mixin="col paredes"  position="5.8 0 -2.3"></a-entity>
+          <a-entity id="barrandas-este-sur" position="0 0 -6.5">
+            <a-box mixin="barras" width="0.1" height="0.1" depth="1.9" position="5.8 1.2 3.2" static-body></a-box>
+            <a-entity mixin="barranda barras"  position="5.8 0 2.8"></a-entity>
+            <a-entity mixin="barranda barras"  position="5.8 0 3.2"></a-entity>
+            <a-entity mixin="barranda barras"  position="5.8 0 3.6"></a-entity>
+          </a-entity>
+
+
+          <!-- Columnas Techo-->
+          <a-box mixin="paredes"width="8.7" height="0.2" depth="0.2" position="1.55 4.1 4.2" static-body></a-box>
+          <a-box mixin="paredes"width="8.7" height="0.2" depth="0.2" position="1.55 4.1 -4.2" static-body></a-box>
+          <a-box mixin="paredes"width="0.2" height="0.2" depth="8.6" position="-2.7 4.1 0" static-body></a-box>
+          <a-box mixin="paredes"width="0.2" height="0.2" depth="8.6" position="5.8 4.1 0" static-body></a-box>
+
+        <!-- Barra -->
+        <a-entity mixin="barra barras"  position="1 0.3 -1.3"></a-entity>
+        <a-entity mixin="barra barras" position="2.5 0.3 -2.8" rotation="0 90 0"></a-entity>
+        <a-entity mixin="barra barras"  position="-0.5 0.3 -2.8" rotation="0 90 0"></a-entity>
+
+        <a-entity mixin="barra-mesa barras-mesas"  position="1 1.2 -1.295"></a-entity>
+        <a-entity mixin="barra-mesa barras-mesas" position="2.5 1.2 -2.6" rotation="0 90 0"></a-entity>
+        <a-entity mixin="barra-mesa barras-mesas"  position="-0.5 1.2 -2.6" rotation="0 90 0"></a-entity>
+        
+        <!-- Paredes -->
+        
+        <a-entity id="pared-cuadro" mixin="pared paredes"  position="3.1 0 4.2"></a-entity>
+          <!-- cuadros -->
+          <a-entity mixin="cuadro1 img-cuadro1"  position="4 2.5 4"></a-entity>
+          <a-entity mixin="border-cuadro1 borders"  position="4 2.5 4.1"></a-entity>
+          <a-entity mixin="cuadro2 img-cuadro2"  position="2 1.5 4"></a-entity>
+          <a-entity mixin="border-cuadro2 borders"  position="2 1.5 4.1"></a-entity>
+
+        <a-entity id="pared-menu" mixin="pared paredes" scale=" 1 1 2.1" position="-0 0 -4.31"></a-entity>
+          <!-- Menu -->
+          <a-entity mixin="menu menus"  position="1 2.5 -4" link-click="href: menu/"></a-entity>
+          <a-entity mixin="border-menu borders"  position="1 2.5 -4.1"></a-entity>
+
+          <!-- Logos -->
+          <a-image src="#src-logo" scale="3 3 3" rotation="0 360 0" position="3 2 4.5"></a-image>
+
+
+        <!-- Techo -->
+        <a-entity mixin="techo techos"  position="1.7 5 -3"  rotation="0 90 -30"></a-entity>
+        <a-entity mixin="techo techos"  position="1.7 5 3"  rotation="0 90 30"></a-entity>
+
+        <!-- Piso --> 
+        <a-plane id="arena"  static-body
+              class="navmesh"
+              rotation="-90 0 0"
+              position="0 0 0"
+              width="80"
+              height="80"
+              repeat="25 25"
+              src="#arena"></a-plane>
+
+        <!-- Cielo -->
+        <a-sky src="#cielo" scale="0.1 0.1 0.1" theta-start="-40" ></a-sky> 
+        
+        <!-- Piso restaurante -->
+        <a-plane id="piso-restaurante"
+        rotation="-90 0 0"
+        position="2.7 0.01 2"
+        width="32"
+        height="16"
+        src="#src-camino"
+        ></a-plane>
+
+
+        <!-- Tablas surf -->
+        <a-entity mixin="tablas" position="22 0 -8" scale="1 1.4 1"static-body></a-entity>
+        <a-entity mixin="tablas" position="22 0 -9" scale="1 1.2 1"static-body></a-entity>
+        <a-entity mixin="tablas" position="22 0 -10" scale="1 1 1"static-body></a-entity>
+
+        <!-- Social Media -->
+        <a-image src="#src-youtube" position="30 2 5" scale="1.2 1 1" rotation="0 -90 0" link-click="href: https://www.youtube.com/channel/UC_hsfJD7V14WPeeFgf3H9xA"></a-image>
+        <a-image src="#src-instagram" position="30 2 7" scale="1.2 1 1" rotation="0 -90 0" link-click="href: https://www.instagram.com/elbarquitodecolon/"></a-image>
+        <a-image src="#src-tiktok" position="30 2 9" scale="1.2 1 1" rotation="0 -90 0" link-click="href: https://www.tiktok.com/@elbarquitodecolon"></a-image>
+
+        <!-- Palmeras -->
+        <a-entity mixin="palmeras" position="-10 0 3" scale="4 4 4"></a-entity>
+        <a-entity mixin="palmeras" position="-12 0 4" scale="4 4 4"></a-entity>
+        <a-entity mixin="palmeras" position="-14 0 6" scale="4 4 4"></a-entity>
+        <a-entity mixin="palmeras" position="-16 0 8" scale="4 4 4"></a-entity>
+        <a-entity mixin="palmeras" position="-17 0 10" scale="4 4 4"></a-entity>
+
+        <a-entity mixin="palmeras" position="-14 0 12" scale="4 4 4"></a-entity>
+        <a-entity mixin="palmeras" position="-12 0 10" scale="4 4 4"></a-entity>
+        <a-entity mixin="palmeras" position="-10 0 8" scale="4 4 4"></a-entity>
+
+        <a-entity mixin="palmeras" position="10 0 0" scale="4 4 4"></a-entity>
+        <a-entity mixin="palmeras" position="8 0 1" scale="4 4 4"></a-entity>
+        <a-entity mixin="palmeras" position="6 0 1.5" scale="4 4 4"></a-entity>
+        <a-entity mixin="palmeras" position="4 0 1.7" scale="4 4 4"></a-entity>
+
+        <a-entity mixin="palmeras" position="12 0 2.5" scale="4 4 4"></a-entity>
+        <a-entity mixin="palmeras" position="10 0 3.5" scale="4 4 4"></a-entity>
+        <a-entity mixin="palmeras" position="8 0 4.3" scale="4 4 4"></a-entity>
+        <a-entity mixin="palmeras" position="6 0 5" scale="4 4 4"></a-entity>
+        <a-entity mixin="palmeras" position="4 0 5.5" scale="4 4 4"></a-entity>
+
+
+
+        <!-- mesas afuera -->
+        <a-entity mixin="mesas-sombrilla" position="15 0 -8" scale="0.5 0.45 0.5" ></a-entity>
+        <a-entity mixin="mesas-madera" static-body position="15 0.4 -8" rotation="0 90 0" scale="0.35 0.35 0.35" ></a-entity>
+        <a-entity mixin="mesas-sombrilla" position="15 0 4" scale="0.5 0.45 0.5" ></a-entity>
+        <a-entity mixin="mesas-madera" static-body position="15 0.4 4" rotation="0 90 0" scale="0.35 0.35 0.35" ></a-entity>
+
+        <a-entity mixin="mesas-sombrilla" position="-2 0 9" scale="0.5 0.45 0.5" ></a-entity>
+        <a-entity mixin="mesas-madera" static-body position="-2 0.4 9" rotation="0 180 0" scale="0.35 0.35 0.35" ></a-entity>
+        <a-entity mixin="mesas-sombrilla" position="2 0 13" scale="0.5 0.45 0.5" ></a-entity>
+        <a-entity mixin="mesas-madera" static-body position="2 0.4 13" rotation="0 180 0" scale="0.35 0.35 0.35" ></a-entity>
+
+        <a-entity mixin="mesas-sombrilla" position="6 0 9" scale="0.5 0.45 0.5" ></a-entity>
+        <a-entity mixin="mesas-madera" static-body position="6 0.4 9" rotation="0 180 0" scale="0.35 0.35 0.35" ></a-entity>
+        <a-entity mixin="mesas-sombrilla" position="-8 0 -5" scale="0.5 0.45 0.5" ></a-entity>
+        <a-entity mixin="mesas-madera" static-body position="-8 0.4 -5" rotation="0 90 0" scale="0.35 0.35 0.35" ></a-entity>
+        
+
+        <!-- butaco -->
+        <a-entity mixin="butacos" static-body position="-0.5 0 -0.6" rotation="0 0 0" scale="0.015 0.015 0.015" ></a-entity>
+        <a-entity mixin="butacos" static-body position="1 0 -0.6" rotation="0 0 0" scale="0.015 0.015 0.015" ></a-entity>
+        <a-entity mixin="butacos" static-body position="2.5 0 -0.6" rotation="0 0 0" scale="0.015 0.015 0.015" ></a-entity>
+
+        <a-entity mixin="butacos" static-body position="-1.2 0 -1.3" rotation="0 0 0" scale="0.015 0.015 0.015" ></a-entity>
+        <a-entity mixin="butacos" static-body position="-1.2 0 -2.4" rotation="0 0 0" scale="0.015 0.015 0.015" ></a-entity>
+        <a-entity mixin="butacos" static-body position="-1.2 0 -3.5" rotation="0 0 0" scale="0.015 0.015 0.015" ></a-entity>
+        
+        <a-entity mixin="butacos" static-body position="3.2 0 -1.3" rotation="0 0 0" scale="0.015 0.015 0.015" ></a-entity>
+        <a-entity mixin="butacos" static-body position="3.2 0 -2.4" rotation="0 0 0" scale="0.015 0.015 0.015" ></a-entity>
+        <a-entity mixin="butacos" static-body position="3.2 0 -3.5" rotation="0 0 0" scale="0.015 0.015 0.015" ></a-entity>
+
+        <!-- Portal-->
+        <a-link href="tesoro/" 
+          scale="2 2 2" 
+          position="25 2.5 -6" 
+          rotation="0 -75 0"
+          image="#thumbTesoro"; scale="0.5 0.5 0.5"
+          backgroundColor="#25e9f4" 
+          borderColor="#2596be" 
+          title="Treasure Hunt"
+          titleColor="black"
+          peekMode="true"
+        ></a-link>
+        
+        <!-- Pelota playa -->
+        <a-entity position="10 5 0" dynamic-body>
+          <a-entity mixin="pelota pelotas">
+          </a-entity>
         </a-entity>
-      </a-entity>
-    
-    </a-scene>
+        <!-- Pelota playa -->
+        <a-entity position="-10 5 0" dynamic-body>
+          <a-entity mixin="pelota pelotas">
+          </a-entity>
+        </a-entity>
+      
+      </a-scene>
+    </div>  
+    <script defer type="module">
+
+      window.onload = function() {
+        var maincursor = document.getElementById('mainCursor');
+      console.log(maincursor);
+      
+      setTimeout(function() {
+        while (!maincursor){
+        setTimeout(function() {
+          location.reload();
+        }, 1000);
+      }
+      }, 3000);
+        document.getElementById('aframe-scene').style.display = 'block';
+        setTimeout(function() {
+          var logo = document.getElementById('logo-container');
+          logo.style.display = 'none';
+        }, 5000);
+      }
+    </script>	
   </body>
 </html>
