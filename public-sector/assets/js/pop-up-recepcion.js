@@ -81,13 +81,13 @@ document.addEventListener('DOMContentLoaded', function() {
         
         console.log(code);
 
-        var idtest="220440"
+        var idtest="271463"
         //condicion para limpiar espacios y solo aceptar numero
         var url='https://fa-eset-dev4-saasfademo1.ds-fa.oraclepdemos.com/crmRestApi/resources/11.13.18.05/serviceRequests/'+"SR"+idtest;
         console.log(url)
         
         var username = 'John.Dunbar';
-        var password = 'cSg7X*7?'; //Contraseña del Service Request
+        var password = 'vYU6W#4%'; //Contraseña del Service Request
 
 		const build_world = new BuilderAPI(url, username, password);
   		build_world.api_call();
