@@ -42,9 +42,6 @@
               <img id="walltexture" src="https://objectstorage.us-ashburn-1.oraclecloud.com/n/idi1o0a010nx/b/bucket-o-verse/o/Public%20Sector%2Fassets%2Fimagenes%2Ftextures%2Fwall.jpg"  crossorigin="anonymous"/>
               <img id="texturastone" src="https://objectstorage.us-ashburn-1.oraclecloud.com/n/idi1o0a010nx/b/bucket-o-verse/o/Public%20Sector%2Fassets%2Fimagenes%2Ftextures%2Fstone.png"  crossorigin="anonymous"/>
 
-              <!-- Music -->
-              <audio id="birds-song" src="https://objectstorage.us-ashburn-1.oraclecloud.com/n/idi1o0a010nx/b/bucket-o-verse/o/Public%20Sector%2Fassets%2Fmusic%2Fbirds-song.mp3"  crossorigin="anonymous"></audio>
-
               <!-- UI -->
               <!-- <img id="escudo-colombia" src="assets/images/ui/escudo-colombia.png"  crossorigin="anonymous"/> -->
               <img id="boton-continuar" src="https://objectstorage.us-ashburn-1.oraclecloud.com/n/idi1o0a010nx/b/bucket-o-verse/o/Public%20Sector%2Fassets%2Fimagenes%2Fui%2Fboton-continuar.png"  crossorigin="anonymous">
@@ -245,12 +242,6 @@
             height="5"
             src="#oracle-logo"
             ></a-image>
-
-            <!-- Music -->            
-            <audio controls volume="5">
-              <source src="birds-song.mp3" type="audio/mpeg">
-            </audio>
-
                        
 
             <!-- parasoles -->
@@ -311,7 +302,7 @@
             movement-controls="speed:0.5;camera:#head;"
             position="-12 0.8 30" rotation="0 0 0" >
             <a-entity id="head"
-              camera="near:0.01;"
+              camera="near:0.1;"
               position="0 2.65 0">
               <a-cursor id="mainCursor"
                 position="0 0 -0.5"
@@ -329,15 +320,15 @@
           build_enviroment();
           window.onload = function() {
             var maincursor = document.getElementById('mainCursor');
-          console.log(maincursor);
-          
-          setTimeout(function() {
-            while (!maincursor){
+            console.log(maincursor);
+            
             setTimeout(function() {
-              location.reload();
-            }, 1000);
-          }
-          }, 3000);
+              while (!maincursor){
+                setTimeout(function() {
+                  location.reload();
+                }, 1000);
+              }
+            }, 3000);
             document.getElementById('aframe-scene').style.display = 'block';
             setTimeout(function() {
               var logo = document.getElementById('logo-container');
