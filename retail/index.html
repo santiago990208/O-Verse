@@ -56,15 +56,6 @@
 
     
     <link rel="stylesheet" type="text/css" href="./assets/css/main.css">
-    <script>
-      AFRAME.registerComponent("link-click", {
-        init: function() {
-          this.el.addEventListener("click", (e) => {
-            window.location = this.data.href;
-          })
-        }
-      })
-    </script>
 
   </head>
   <body>
@@ -76,7 +67,7 @@
         <a-light id="dirlight" intensity="2" light="castShadow:false;type:hemisphere" position="0 -6 0"></a-light>
         <!-- Store scene -->
 
-        <a-entity id="modelo-3d-tienda" gltf-model="store_in_the_mall.glb" position="0 0 0" scale="0.08 0.08 0.08" rotation="0 0 0">
+        <a-entity id="modelo-3d-tienda" gltf-model="Mall.glb" position="0 0 0" scale="0.08 0.08 0.08" rotation="0 0 0">
           <a-plane id="plano-general"
             class="navmesh"
             rotation="-90 0 0"
@@ -364,12 +355,7 @@ visible="false"
 
         </a-entity>
 
-        <a-entity
-          gltf-model="Mall.glb"
-          position="0 0 0"
-          scale="0.08 0.08 0.08"
-          rotation="0 0 0"
-        ></a-entity>
+        
 
         <!-- Ambient light -->
         <a-entity light="type: ambient; intensity: 0.70"></a-entity>
@@ -386,8 +372,6 @@ visible="false"
           <a-gltf-model id="cajera-glft" shadow="receive:true;cast:true;" src="assets/objects/cajera.glb"  crossorigin="anonymous"></a-gltf-model>
           <a-gltf-model id="cashier-glft" shadow="receive:true;cast:true;" src="assets/objects/cashier.glb"  crossorigin="anonymous"></a-gltf-model>
           <a-gltf-model id="dressing-room-glft" shadow="receive:true;cast:true;" src="assets/objects/dressing-room.glb"  crossorigin="anonymous"></a-gltf-model>
-
-          <a-gltf-model id="dress-door-glft" shadow="receive:true;cast:true;" src="assets/objects/dress-door.glb"  crossorigin="anonymous"></a-gltf-model>
           <a-gltf-model id="curtain-glft" shadow="receive:true;cast:true;" src="assets/objects/curtain2.glb"  crossorigin="anonymous" ></a-gltf-model>
 
           <a-gltf-model id="clienta1-glft" shadow="receive:true;cast:true;" src="assets/objects/clienta1.glb"  crossorigin="anonymous"></a-gltf-model>
