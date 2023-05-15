@@ -71,13 +71,13 @@
 
         <!-- Store scene -->
         <a-entity
-          gltf-model="Mall3.glb"
+          gltf-model="Mall.glb"
           position="0 0 0"
           scale="0.08 0.08 0.08"
           rotation="0 0 0"
         ></a-entity>
         <!-- Ambient light -->
-        <a-entity light="type: ambient; intensity: 0.55"></a-entity>
+        <a-entity light="type: ambient; intensity: 0.70"></a-entity>
 
         <!-- Directional light -->
         <a-entity light="type: hemisphere; intensity: 0.2" position="15 20 9"></a-entity> 
@@ -125,6 +125,19 @@
           <a-gltf-model id="guardia-glb" shadow="receive:true;cast:true;" src="assets/objects/guardia.glb"  crossorigin="anonymous"></a-gltf-model>
           <img id="logo_atras" src="assets/images/ui/atras.png"  crossorigin="anonymous">
           <img id="boton-cerrar" src="assets/images/ui/boton-cerrar.png"  crossorigin="anonymous">
+
+          <!-- Clothes and shoes -->
+          <a-gltf-model id="shoes1-glft" shadow="receive:true;cast:true;" src="assets/objects/shoes.glb"  crossorigin="anonymous"></a-gltf-model>
+          <a-gltf-model id="shoes2-glft" shadow="receive:true;cast:true;" src="assets/objects/shoes2.glb"  crossorigin="anonymous"></a-gltf-model>
+          <a-gltf-model id="shoes3-glft" shadow="receive:true;cast:true;" src="assets/objects/shoes3.glb"  crossorigin="anonymous"></a-gltf-model>
+          <a-gltf-model id="shoes4-glft" shadow="receive:true;cast:true;" src="assets/objects/shoes4.glb"  crossorigin="anonymous"></a-gltf-model>
+          <a-gltf-model id="shoes5-glft" shadow="receive:true;cast:true;" src="assets/objects/shoes5.glb"  crossorigin="anonymous"></a-gltf-model>
+          <a-gltf-model id="shoes6-glft" shadow="receive:true;cast:true;" src="assets/objects/shoes6.glb"  crossorigin="anonymous"></a-gltf-model>
+          <a-gltf-model id="shoes7-glft" shadow="receive:true;cast:true;" src="assets/objects/shoes7.glb"  crossorigin="anonymous"></a-gltf-model>
+          <a-gltf-model id="shoes8-glft" shadow="receive:true;cast:true;" src="assets/objects/shoes8.glb"  crossorigin="anonymous"></a-gltf-model>
+          <a-gltf-model id="shoes9-glft" shadow="receive:true;cast:true;" src="assets/objects/shoes9.glb"  crossorigin="anonymous"></a-gltf-model>
+          <a-gltf-model id="shoes10-glft" shadow="receive:true;cast:true;" src="assets/objects/shoes10.glb"  crossorigin="anonymous"></a-gltf-model>
+          <a-gltf-model id="shoes11-glft" shadow="receive:true;cast:true;" src="assets/objects/shoes11.glb"  crossorigin="anonymous"></a-gltf-model>
         </a-asset> 
 
         <!-- Textures -->
@@ -150,6 +163,32 @@
         <a-video id="video-pantalla" src="assets/video/Client-Paqueta-Retail.mp4" width="16" height="9" position="22.4 4.3 7" rotation="0 90 0" scale="0.7 0.7 0.7" crossorigin="anonymous"></a-video>
         <a-video id="video-pantalla" src="assets/video/Client-Paqueta-Retail.mp4" width="16" height="9" position="22.4 4.3 26.3" rotation="0 90 0" scale="0.7 0.7 0.7" crossorigin="anonymous"></a-video>
 
+        <!-- Shoes-->
+        <a-entity id="shoes">
+          <!-- Left-->
+          <a-entity gltf-model="#shoes1-glft"  position="8.3 2.1 0" rotation="0 90 0" scale="0.25 0.3 0.3"></a-entity>
+          <a-entity gltf-model="#shoes1-glft"  position="7.9 2.1 0" rotation="0 90 0" scale="0.25 0.3 0.3"></a-entity>
+          <a-entity gltf-model="#shoes3-glft"  position="5 1.9 0.2" rotation="0 0 0" scale="0.2 0.2 0.2"></a-entity>
+          <a-entity gltf-model="#shoes3-glft"  position="4.5 1.9 0.2" rotation="0 0 0" scale="0.2 0.2 0.2"></a-entity>
+          <a-entity gltf-model="#shoes7-glft"  position="8.3 3.1 0.2" rotation="0 -90 0" scale="0.005 0.005 0.005"></a-entity>
+          <a-entity gltf-model="#shoes7-glft"  position="7.8 3.1 0.2" rotation="0 -90 0" scale="0.005 0.005 0.005"></a-entity>
+          <a-entity gltf-model="#shoes11-glft"  position="6.1 3.4 0.1" rotation="0 -90 0" scale="2.5 3 3"></a-entity>
+          <a-entity gltf-model="#shoes11-glft"  position="5.6 3.4 0.1" rotation="0 -90 0" scale="2.5 3 3"></a-entity>
+
+          <a-entity gltf-model="#shoes4-glft"  position="1.9 1.9 0.2" rotation="0 0 0" scale="0.003 0.003 0.003"></a-entity>
+          <a-entity gltf-model="#shoes4-glft"  position="1.5 1.9 0.2" rotation="0 0 0" scale="0.003 0.003 0.003"></a-entity>
+
+          <a-entity gltf-model="#shoes5-glft"  position="-0.5 2.1 0.2" rotation="0 0 0" scale="0.15 0.15 0.15"></a-entity>
+
+          <!-- Right-->
+          <a-entity gltf-model="#shoes8-glft"  position="6.8 3.1 33.5" rotation="0 180 0" scale="0.1 0.1 0.1"></a-entity>
+          <a-entity gltf-model="#shoes8-glft"  position="7.2 3.1 33.5" rotation="0 180 0" scale="0.1 0.1 0.1"></a-entity>
+          <a-entity gltf-model="#shoes9-glft"  position="8.2 2.1 33.5" rotation="0 -90 0" scale="0.4 0.4 0.4"></a-entity>
+          <a-entity gltf-model="#shoes9-glft"  position="7.8 2.1 33.5" rotation="0 -90 0" scale="0.4 0.4 0.4"></a-entity>
+          <a-entity gltf-model="#shoes10-glft"  position="5.4 2.1 33.4" rotation="0 180 0" scale="3 3 3"></a-entity>
+          <a-entity gltf-model="#shoes10-glft"  position="5.8 2.1 33.4" rotation="0 180 0" scale="3 3 3"></a-entity>
+          
+        </a-entity>
 
         <!-- Decoration -->
         <a-entity id="decoration-world">
@@ -158,8 +197,8 @@
             <a-entity gltf-model="#sofa-glft"  position="5 1 20" rotation="0 110 0" scale="1 1 1"></a-entity>
             <a-entity gltf-model="#sofa2-glft"  position="9.5 0 11.5" rotation="0 -60 0" scale="0.9 0.9 0.9"></a-entity>
             <a-entity gltf-model="#sofa2-glft"  position="10.5 0 15.5" rotation="0 -120 0" scale="0.9 0.9 0.9"></a-entity>
-            <a-entity gltf-model="#sofa2-glft"  position="-1.5 0 13.5" rotation="0 60 0" scale="0.9 0.9 0.9"></a-entity>
-            <a-entity gltf-model="#sofa2-glft"  position="-0.5 0 17.5" rotation="0 120 0" scale="0.9 0.9 0.9"></a-entity>
+<!--             <a-entity gltf-model="#sofa2-glft"  position="-1.5 0 13.5" rotation="0 60 0" scale="0.9 0.9 0.9"></a-entity>
+            <a-entity gltf-model="#sofa2-glft"  position="-0.5 0 17.5" rotation="0 120 0" scale="0.9 0.9 0.9"></a-entity> -->
             <a-entity gltf-model="#table-glft"  position="4.5 0 15.5" rotation="0 120 0" scale="2 2 2"></a-entity>
             <a-entity gltf-model="#cajera-glft"  position="19 0 23" rotation="0 -90 0" scale="2.8 2.8 2.8"></a-entity>
             <a-entity gltf-model="#cashier-glft"  position="17 2 23" rotation="0 90 0" scale="30 30 30"></a-entity>
@@ -176,6 +215,7 @@
             <a-entity gltf-model="#man-glft"  position="-3.5 0 23.4" rotation="0 120 0" scale="2.8 2.8 2.8"></a-entity>
             <a-entity id="guardia" gltf-model="#guardia-glb" position="9 0 29" scale="2.5 2.5 2.5" rotation="0 -135 0"></a-entity> 
           </a-entity>
+
 
           <!-- Entorno -->
           <a-sky position="6 0 15" src="#environment" radius="280" scale="0.08 0.08 0.08" theta-start="50" theta-length="50" phi-length="180" phi-start="-94"></a-sky> 
