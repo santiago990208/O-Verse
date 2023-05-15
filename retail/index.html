@@ -7,8 +7,54 @@
     <meta name="description" content="Workshop Retail Metaverse en OCI">
     <meta name="author" content="Santiago Botero">
     <script src="https://aframe.io/releases/1.3.0/aframe.min.js"></script>
+    <script src="assets/js/main.js"></script> <!--link del archivo en object storage-->
     <script src="https://rawgit.com/rdub80/aframe-gui/master/dist/aframe-gui.min.js"></script> <!-- libreria para radio button funcione -->
     <script src="assets/js/FAQ-funciones.js"></script>
+
+    <style>
+      #aframe-scene {
+        display: none;
+      }
+      #logo-container {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-image: url('https://www.google.com/url?sa=i&url=https%3A%2F%2Fgratisography.com%2Ftag%2Fcool%2F&psig=AOvVaw13Ee29rPvuGkxZT_GXiJX9&ust=1682696004776000&source=images&cd=vfe&ved=0CA4QjRxqFwoTCPi_y5-xyv4CFQAAAAAdAAAAABAD');
+        background-size: cover;
+        background-position: center center;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        z-index: 9999;
+      }
+        
+        .loading-spinner {
+          width: 100px;
+          height: 100px;
+          border-radius: 50%;
+          border: 10px solid #555353;
+          border-top-color: #f5f5f5;
+          animation: spin 1s linear infinite;
+        }
+        
+        .loading-text {
+          margin-top: 20px;
+          font-size: 24px;
+          color: #000000;
+          font-weight: bold;
+        }
+        
+        @keyframes spin {
+          to {
+            transform: rotate(360deg);
+          }
+        }
+    </style>
+
+    
     <link rel="stylesheet" type="text/css" href="./assets/css/main.css">
     <script>
       AFRAME.registerComponent("link-click", {
@@ -19,21 +65,312 @@
         }
       })
     </script>
+
   </head>
   <body>
     <div id="logo-container">
       <div class="loading-spinner"></div>
     </div>
     <div id="aframe-scene">
-      <a-scene>
-
+      <a-scene loading-screen="enabled:false;"  reflection="directionalLight:#dirlight;" renderer="alpha:true;physicallyCorrectLights:true;colorManagement:true;">
+        <a-light id="dirlight" intensity="2" light="castShadow:false;type:hemisphere" position="0 -6 0"></a-light>
         <!-- Store scene -->
+
+        <a-entity id="modelo-3d-tienda" gltf-model="store_in_the_mall.glb" position="0 0 0" scale="0.08 0.08 0.08" rotation="0 0 0">
+          <a-plane id="plano-general"
+            class="navmesh"
+            rotation="-90 0 0"
+            position="0 0 0"
+            width="1000"
+            height="1000"
+            color="blue"
+            visible="false"
+          ></a-plane>
+
+        <!--Entrada -->
+          <a-plane id="limitante-pared-entrada"
+          class="navmesh-hole"
+          rotation="-90 90 0"
+          position="-160 0 315"
+          width="730"
+          height="20"
+          color="#FFF"
+          visible="false"
+        ></a-plane> 
+
+           <a-plane id="limitante-izquierda-pared"
+            class="navmesh-hole"
+            rotation="-90 0 0"
+            position="120 0 0"
+            width="300"
+            height="40"
+            color="#FFF"
+            visible="false"
+          ></a-plane>  
+
+         <a-plane id="limitante-izquierda-hueco"
+            class="navmesh-hole"
+            rotation="-90 0 0"
+            position="-50 0 -40"
+            width="300"
+            height="20"
+            color="#FFF"
+            visible="false"
+          ></a-plane>  
+
+
+        
+  <a-plane id="limitante-derecha-pared"
+          class="navmesh-hole"
+          rotation="-90 0 0"
+          position="100 0 400"
+          width="400"
+          height="30"
+          color="#FFF"
+          visible="false"
+        ></a-plane>  <!--Pared QR-->  
+
+
+        <!-- Pared derecha-hueco  --> 
+      <a-plane id="limitante-derecha-hueco"
+        class="navmesh-hole"
+        rotation="-90 0 0"
+        position="-50 0 440"
+        width="200"
+        height="50"
+        color="#FFF"
+        visible="false"
+      ></a-plane>   
+
+
+ <!--Pared QR -->
+ <a-plane id="limitante-pared-qr"
+ class="navmesh-hole"
+ rotation="-90 90 0"
+ position="-40 0 380"
+ width="110"
+ height="30"
+ color="#FFF"
+ visible="false"
+></a-plane>
+
+<!--Pared QR -->
+<a-plane id="limitante-pared-izquierda"
+class="navmesh-hole"
+rotation="-90 90 0"
+position="-40 0 0"
+width="60"
+height="30"
+color="#FFF"
+visible="false"
+></a-plane>
+
+    <!--Clientes  -->
+    <a-plane id="limitante-pared-qr"
+    class="navmesh-hole"
+    rotation="-90 90 0"
+    position="-40 0 280"
+    width="50"
+    height="20"
+    color="#FFF"
+    visible="false"
+  ></a-plane>
+
+     <!--Probador -->
+   
+     <a-plane id="limitante-izquierda-probador"
+     class="navmesh-hole"
+     rotation="-90 0 0"
+     position="420 0 170"
+     width="260"
+     height="20"
+     color="#FFF"
+     visible="false"
+   ></a-plane>
+  
+   <a-plane id="limitante-derecha-probador"
+   class="navmesh-hole"
+   rotation="-90 0 0"
+   position="400 0 240"
+   width="260"
+   height="20"
+   color="#FFF"
+   visible="false"
+></a-plane>
+
+    <!--Probador paredes externas-->
+ <a-plane id="limitante-derecha-probador-pared"
+     class="navmesh-hole"
+     rotation="-90 90 0"
+     position="280 0 90"
+     width="180"
+     height="20"
+     color="#FFF"
+     visible="false"
+ ></a-plane>
+
+ <a-plane id="limitante-izquierda-probador-pared"
+ class="navmesh-hole"
+ rotation="-90 90 0"
+ position="400 0 250"
+ width="140"
+ height="20"
+ color="#FFF"
+ visible="false"
+></a-plane>
+      
+<a-plane id="limitante-centro-probador-pared"
+class="navmesh-hole"
+rotation="-90 90 0"
+position="280 0 315"
+width="150"
+height="20"
+color="#FFF"
+visible="false"
+></a-plane>
+
+
+<a-plane id="Cliente 4"
+class="navmesh-hole"
+rotation="-90 0 0"
+position="-45 0 85"
+width="10"
+height="10"
+color="#FFF"
+visible="false"
+></a-plane>
+
+<!-- Recepcion-->
+
+
+
+<a-plane id="limitante-derecha-probador-frente-1"
+class="navmesh-hole"
+rotation="-90 90 0"
+position="150 0 350"
+width="40"
+height="20"
+color="#FFF"
+visible="false"
+></a-plane>
+
+<a-plane id="limitante-derecha-probador-frente-2"
+class="navmesh-hole"
+rotation="-90 90 0"
+position="220 0 300"
+width="100"
+height="20"
+color="#FFF"
+visible="false"
+></a-plane>
+
+
+<a-plane id="Cajera 1"
+class="navmesh-hole"
+rotation="-90 90 0"
+position="240 0 290"
+width="30"
+height="20"
+color="#FFF"
+visible="false"
+></a-plane>
+
+<a-plane id="limitante-derecha-probador-vertical-1"
+class="navmesh-hole"
+rotation="-90 0 0"
+position="180 0 340"
+width="90"
+height="20"
+color="#FFF"
+visible="false"
+></a-plane>
+
+
+<a-plane id="limitante-derecha-probador-vertical-2"
+class="navmesh-hole"
+rotation="-90 0 0"
+position="230 0 240"
+width="40"
+height="20"
+color="#FFF"
+visible="false"
+></a-plane>
+
+<a-plane id="Cajera 2"
+class="navmesh-hole"
+rotation="-90 0 0"
+position="180 0 360"
+width="20"
+height="20"
+color="#FFF"
+visible="false"
+></a-plane>
+
+
+<a-plane id="Cliente 2"
+class="navmesh-hole"
+rotation="-90 0 0"
+position="110 0 360"
+width="30"
+height="30"
+color="#FFF"
+visible="false"
+></a-plane>
+
+
+<a-plane id="Cliente 2"
+class="navmesh-hole"
+rotation="-90 0 0"
+position="20 0 370"
+width="30"
+height="30"
+color="#FFF"
+visible="false"
+></a-plane>
+
+
+<a-plane id="Cliente 3"
+class="navmesh-hole"
+rotation="-90 0 0"
+position="130 0 55"
+width="30"
+height="30"
+color="#FFF"
+visible="false"
+></a-plane>
+
+<a-plane id="Cliente 4"
+class="navmesh-hole"
+rotation="-90 0 0"
+position="190 0 75"
+width="30"
+height="30"
+color="#FFF"
+visible="false"
+></a-plane>
+
+
+
+<a-plane id="Cliente chica saco blanco 2"
+class="navmesh-hole"
+rotation="-90 90 0"
+position="190 0 285"
+width="20"
+height="20"
+color="#FFF"
+visible="false"
+></a-plane>
+
+
+        </a-entity>
+
         <a-entity
           gltf-model="Mall3.glb"
           position="0 0 0"
           scale="0.08 0.08 0.08"
           rotation="0 0 0"
         ></a-entity>
+
         <!-- Ambient light -->
         <a-entity light="type: ambient; intensity: 0.55"></a-entity>
 
@@ -42,25 +379,6 @@
         <a-entity light="type: hemisphere; intensity: 0.5" position="12 20 18"></a-entity> 
         
 
-        <!-- Camera with navigation controls -->
-        <a-entity id="cameraRig"
-              wasd-controls
-              look-controls="pointerLockEnabled: false"
-              simple-navmesh-constraint="navmesh:.navmesh;fall:0.5;height:0.8;exclude:.navmesh-hole;"
-              movement-controls="speed:0.5;camera:#head;"
-              position="0 0.8 19" rotation="0 0 0" >
-              <a-entity id="head"
-                camera="near:0.01;"
-                position="0 2.65 0">
-                <a-cursor id="mainCursor" 
-                  position="0 0 -0.5"
-                  geometry="primitive: ring; radiusInner: 0.0045; radiusOuter: 0.008"
-                  material="opacity: 0.6; shader: flat" 
-                  cursor="rayOrigin: fuse">
-                </a-cursor>
-              </a-entity>
-            </a-entity>
-
         <!-- Obejtos --> 
         <a-asset>
           <a-gltf-model id="sofa-glft" shadow="receive:true;cast:true;" src="assets/objects/sofa.glb"  crossorigin="anonymous"></a-gltf-model>
@@ -68,8 +386,10 @@
           <a-gltf-model id="cajera-glft" shadow="receive:true;cast:true;" src="assets/objects/cajera.glb"  crossorigin="anonymous"></a-gltf-model>
           <a-gltf-model id="cashier-glft" shadow="receive:true;cast:true;" src="assets/objects/cashier.glb"  crossorigin="anonymous"></a-gltf-model>
           <a-gltf-model id="dressing-room-glft" shadow="receive:true;cast:true;" src="assets/objects/dressing-room.glb"  crossorigin="anonymous"></a-gltf-model>
+
           <a-gltf-model id="dress-door-glft" shadow="receive:true;cast:true;" src="assets/objects/dress-door.glb"  crossorigin="anonymous"></a-gltf-model>
           <a-gltf-model id="curtain-glft" shadow="receive:true;cast:true;" src="assets/objects/curtain2.glb"  crossorigin="anonymous" ></a-gltf-model>
+
           <a-gltf-model id="clienta1-glft" shadow="receive:true;cast:true;" src="assets/objects/clienta1.glb"  crossorigin="anonymous"></a-gltf-model>
           <a-gltf-model id="clienta2-glft" shadow="receive:true;cast:true;" src="assets/objects/clienta2.glb"  crossorigin="anonymous"></a-gltf-model>
           <a-gltf-model id="cliente-glft" shadow="receive:true;cast:true;" src="assets/objects/cliente.glb"  crossorigin="anonymous"></a-gltf-model>
@@ -109,31 +429,235 @@
         <a-video id="video-pantalla" src="assets/video/Client-Paqueta-Retail.mp4" width="16" height="9" position="22.4 4.3 26.3" rotation="0 90 0" scale="0.7 0.7 0.7" crossorigin="anonymous"></a-video>
 
 
-        <!-- Decoration -->
+      <!--   Decoration  -->
         <a-entity id="decoration-world">
           <a-entity id="living-room">
-            <a-entity gltf-model="#sofa-glft"  position="5 1 10" rotation="0 -50 0" scale="1 1 1"></a-entity>
+            <a-entity gltf-model="#sofa-glft"  position="5 1 10" rotation="0 -50 0" scale="1 1 1">
+          
+          <!-- -->
+          <a-plane id="limitante-izquierda-hueco"
+          class="navmesh-hole"
+          rotation="-90 0 0"
+          position="0 -50 0"
+          width="3"
+          height="2"
+          color="#FFF"
+          visible="false"
+        ></a-plane>
+        
+            </a-entity>
+                <!-- Sofa Largo 1 -->
+                <a-plane id="limitante-izquierda-hueco"
+                class="navmesh-hole"
+                rotation="-90 0 0"
+                position="5 0 10"
+                width="8"
+                height="3"
+                color="#FFF"
+                visible="false"
+              ></a-plane>  
+      
             <a-entity gltf-model="#sofa-glft"  position="5 1 20" rotation="0 110 0" scale="1 1 1"></a-entity>
-            <a-entity gltf-model="#sofa2-glft"  position="9.5 0 11.5" rotation="0 -60 0" scale="0.9 0.9 0.9"></a-entity>
-            <a-entity gltf-model="#sofa2-glft"  position="10.5 0 15.5" rotation="0 -120 0" scale="0.9 0.9 0.9"></a-entity>
-            <a-entity gltf-model="#sofa2-glft"  position="-1.5 0 13.5" rotation="0 60 0" scale="0.9 0.9 0.9"></a-entity>
-            <a-entity gltf-model="#sofa2-glft"  position="-0.5 0 17.5" rotation="0 120 0" scale="0.9 0.9 0.9"></a-entity>
-            <a-entity gltf-model="#table-glft"  position="4.5 0 15.5" rotation="0 120 0" scale="2 2 2"></a-entity>
-            <a-entity gltf-model="#cajera-glft"  position="19 0 23" rotation="0 -90 0" scale="2.8 2.8 2.8"></a-entity>
-            <a-entity gltf-model="#cashier-glft"  position="17 2 23" rotation="0 90 0" scale="30 30 30"></a-entity>
-            <a-entity gltf-model="#dressing-room-glft"  position="30 5.5 16.7" rotation="0 -90 0" scale="5 5 5"></a-entity>
-            <a-entity gltf-model="#curtain-glft"  position="31 0 15.5" rotation="0 -90 0" scale="3 3 3" link-click="href: probador.html"></a-entity>
-            <a-entity gltf-model="#clienta1-glft"  position="27 0 16" rotation="0 70 0" scale="2.8 2.8 2.8"></a-entity>
-            <a-entity gltf-model="#clienta2-glft"  position="15 0 23" rotation="0 90 0" scale="2.8 2.8 2.8"></a-entity>
-            <a-entity gltf-model="#cliente-glft"  position="15 0 6" rotation="0 -140 0" scale="2.8 2.8 2.8"></a-entity>
-            <a-entity gltf-model="#empleado-glft"  position="10 0 4" rotation="0 -250 0" scale="2.8 2.8 2.8"></a-entity>
-            <a-entity gltf-model="#dependiente-glft"  position="14 0 29" rotation="0 180 0" scale="2.8 2.8 2.8"></a-entity>
-            <a-entity gltf-model="#cashier-glft"  position="14 2 26.5" rotation="0 360 0" scale="30 30 30"></a-entity>
-            <a-entity gltf-model="#cliente2-glft"  position="2 0 30" rotation="0 -45 0" scale="2.8 2.8 2.8"></a-entity>
-            <a-entity gltf-model="#women-glft"  position="-3 0 22" rotation="0 75 0" scale="2.8 2.8 2.8"></a-entity>
-            <a-entity gltf-model="#man-glft"  position="-3.5 0 23.4" rotation="0 120 0" scale="2.8 2.8 2.8"></a-entity>
-            <a-entity id="guardia" gltf-model="#guardia-glb" position="9 0 29" scale="2.5 2.5 2.5" rotation="0 -135 0"></a-entity> 
-          </a-entity>
+           </a-entity>
+            <!-- Sofa Largo 2 -->
+           <a-plane id="limitante-izquierda-hueco"
+           class="navmesh-hole"
+           rotation="-90 0 0"
+           position="5 0 20"
+           width="6"
+           height="3"
+           color="#FFF"
+           visible="false"
+         ></a-plane>  
+           
+
+
+<!--    Sofa 3     --> 
+            <a-entity gltf-model="#sofa2-glft"  position="9.5 0 11.5" rotation="0 -60 0" scale="0.9 0.9 0.9">
+         
+              <a-plane rotation="-90 0 0" 
+              width="4" 
+              height="3" 
+              position="1 0 0" 
+              class="navmesh-hole" 
+              color="#FFF" 
+              visible="false">
+            </a-plane>
+               
+         
+          
+            </a-entity>
+<!--    Sofa 4     --> 
+            <a-plane rotation="-90 0 45" 
+            width="4" 
+            height="3" 
+            position="10 0 17" 
+            class="navmesh-hole" 
+            color="#FFF" 
+            visible="false">
+          </a-plane>
+             
+         <!-- Information  Revisar -->
+            <a-entity gltf-model="#sofa2-glft"  position="10.5 0 15.5" rotation="0 -120 0" scale="0.9 0.9 0.9">
+            </a-entity>
+            
+
+
+           <!--  Sofa 1 -->
+         
+            <a-entity gltf-model="#sofa2-glft"  position="-1.5 0 13.5" rotation="0 60 0" scale="0.9 0.9 0.9">
+            </a-entity>
+         
+            <a-plane id="limitante-izquierda-hueco"
+            class="navmesh-hole"
+            rotation="-90 0 0"
+            position="-1 0 12.5"
+            width="4"
+            height="3"
+            color="#FFF"
+            visible="false"
+          ></a-plane>
+          
+
+              <!-- Sofa 2  --> 
+            <a-entity gltf-model="#sofa2-glft"  position="-0.5 0 17.5" rotation="0 120 0" scale="0.9 0.9 0.9">
+            </a-entity>
+            <a-plane id="limitante-izquierda-hueco"
+            class="navmesh-hole"
+            rotation="-90 0 0"
+            position="-1 0 16.5"
+            width="4"
+            height="3"
+            color="#FFF"
+            visible="false"
+          ></a-plane> 
+
+
+ <!--   Mesa  --> 
+
+            <a-entity gltf-model="#table-glft"  position="4.5 0 15.5" rotation="0 120 0" scale="2 2 2">
+            </a-entity>
+            <a-plane rotation="-90 0 45" 
+            width="4" 
+            height="3" 
+            position="4.5 0 15.5" 
+            class="navmesh-hole" 
+            color="#FFF" 
+            visible="false">
+            </a-plane>
+
+
+            
+            <!-- Information REVISAR PUNTO DE PAGO Cajera 1 al lado del vestidor -->
+
+            <a-entity gltf-model="#cajera-glft"  position="19 0 23" rotation="0 -90 0" scale="2.8 2.8 2.8">
+            
+            </a-entity>
+
+
+
+
+<!-- Information  REVISAR Preguntar que es ¿?  -->
+    
+            <a-entity gltf-model="#cashier-glft"  position="17 2 23" rotation="0 90 0" scale="30 30 30">
+            
+             
+            </a-entity>
+            
+   
+ <!-- Information  REVISAR que es -->
+            <a-entity gltf-model="#dressing-room-glft"  position="30 5.5 16.7" rotation="0 -90 0" scale="5 5 5">
+              <a-plane id="limitante-izquierda-hueco"
+              class="navmesh-hole"
+              rotation="-90 0 0"
+              position="0 0 0"
+              width="5"
+              height="5"
+              color="#FFF"
+              visible="true"
+            ></a-plane>
+            </a-entity>
+
+         
+
+ 
+         <!-- Information  REVISAR  Corredor Vestier  -->
+            <a-entity gltf-model="#curtain-glft"  position="31 0 15.5" rotation="0 -90 0" scale="3 3 3" link-click="probador.html">
+           
+            </a-entity>
+           
+
+            <!-- Information  REVISAR Cliente 1 Chica vestido rojo Corredor vestier  -->  
+            <a-entity gltf-model="#clienta1-glft"  position="27 0 16" rotation="0 70 0" scale="2.8 2.8 2.8">
+           
+            </a-entity>
+    
+
+           <!-- Information  REVISAR Cliente 2 Chica buso blanco caja   -->
+            <a-entity gltf-model="#clienta2-glft"  position="15 0 23" rotation="0 90 0" scale="2.8 2.8 2.8">
+           
+            </a-entity>
+           
+ 
+            <!-- Information  REVISAR Cliente 3 Chico buso blanco izquierda detras de las sillas  -->
+            <a-entity gltf-model="#cliente-glft"  position="15 0 6" rotation="0 -140 0" scale="2.8 2.8 2.8">
+           
+            </a-entity>
+          
+              <!-- Information  REVISAR Cuadro pared izquierda Cliente 4 Chico elegante izquierda al lado de las sillas  -->
+            <a-entity gltf-model="#empleado-glft"  position="10 0 4" rotation="0 -250 0" scale="2.8 2.8 2.8">
+        
+            </a-entity>
+           
+          
+            <!-- Information  REVISAR Cajera 2 Chica al lado derecho -->
+            <a-entity gltf-model="#dependiente-glft"  position="14 0 29" rotation="0 180 0" scale="2.8 2.8 2.8">
+            
+            </a-entity>
+
+            
+          <!-- Information  REVISAR  que es?  -->
+            <a-entity gltf-model="#cashier-glft"  position="14 2 26.5" rotation="0 360 0" scale="30 30 30">
+          
+            </a-entity>
+         
+
+     <!-- Information Cliente 5 Señor elegante lado derecho entrada  -->
+            <a-entity gltf-model="#cliente2-glft"  position="2 0 30" rotation="0 -45 0" scale="2.8 2.8 2.8">
+           
+            </a-entity>
+           
+
+   <!-- Informatio Cliente 6 Mujer 1 Chica vestido verda entrada  --> 
+            <a-entity gltf-model="#women-glft"  position="-3 0 22" rotation="0 75 0" scale="2.8 2.8 2.8">
+          x
+            </a-entity>
+       
+  
+
+   <!-- Informatio Cliente 7 Hombre japones entrada --> 
+            <a-entity gltf-model="#man-glft"  position="-3.5 0 23.4" rotation="0 120 0" scale="2.8 2.8 2.8">
+           
+            </a-entity>
+         
+  
+         <!-- Informatio  Cliente 8 Hombre  al lado de la caja -->  
+            <a-entity id="guardia" gltf-model="#guardia-glb" position="9 0 29" scale="2.5 2.5 2.5" rotation="0 -135 0">
+              
+              <a-plane id="limitante-izquierda-hueco"
+              class="navmesh-hole"
+              rotation="-90 0 0"
+              position="10 0 10"
+              width="5"
+              height="5"
+              color="#FFF"
+              visible="true"
+            ></a-plane>
+
+            </a-entity> 
+     
+         
+      
 
           <!-- Entorno -->
           <a-sky position="6 0 15" src="#environment" radius="280" scale="0.08 0.08 0.08" theta-start="50" theta-length="50" phi-length="180" phi-start="-94"></a-sky> 
@@ -194,8 +718,10 @@
           src="#publicidad2"
           ></a-image>
 
-        <!-- Decoration A-FRAME -->
-        <a-entity id="entorno">
+
+
+        <!-- Dressing room -->
+        <a-entity id="entorno" class="objectclick">
           <a-box id="letero-dressing-room"
           rotation="0 90 0"
           position="29 6 16.7"
@@ -203,9 +729,37 @@
           height="1"
           depth="0.2"
           repeat="5 5"
+
           color="#A1C4F8"
-          link-click="href:probador.html"
+          link-click="probador.html"
           ></a-box>
+          
+          ></a-box>
+          <a-entity gltf-model="#dressing-room-glft"  position="30 5.5 16.7" rotation="0 -90 0" scale="5 5 5" ></a-entity>
+         </a-entity>
+         
+
+         <!-- Camera with navigation controls -->
+        <a-entity id="cameraRig"
+          wasd-controls
+          look-controls="pointerLockEnabled: false"
+          simple-navmesh-constraint="navmesh:.navmesh;fall:0.5;height:0.8;exclude:.navmesh-hole;"
+          movement-controls="speed:0.5;camera:#head;"
+          position="0 0.8 19" rotation="0 0 0" >
+          <a-entity id="head"
+            camera="near:0.01;"
+            position="0 2.65 0">
+            <a-cursor id="mainCursor" 
+              position="0 0 -0.5"
+              geometry="primitive: ring; radiusInner: 0.0045; radiusOuter: 0.008"
+              material="opacity: 0.6; shader: flat" 
+              cursor="rayOrigin: fuse">
+            </a-cursor>
+          </a-entity>
+        </a-entity>
+      
+
+          
 
           <a-box id="pared-izquierda"
           rotation="0 90 0"
@@ -469,6 +1023,7 @@
             </a-entity> 
           </a-entity>
     <!-- FIN FAQ -->
+
 
       </a-scene>
 
